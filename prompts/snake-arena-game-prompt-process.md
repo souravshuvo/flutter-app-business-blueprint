@@ -47,6 +47,23 @@ Do not use this process to clone another game's name, UI, art, maps, assets, mon
 9. Prompt G9: Closed testing and release readiness.
 10. Prompt G10: Post-release improvement plan.
 
+## Production V1 Requirement
+
+Do not publish after only the first playable prototype. For a release-ready version 1, use `prompts/game-production-ready-prompt-pack.md` after the prototype review.
+
+Production v1 should include polished UI, stable offline bot gameplay, enough content, production-safe AdMob, analytics, truthful store assets, and release QA.
+
+Suggested content target: one polished arena plus 20-30 missions, objectives, bot difficulty milestones, or equivalent replayable goals.
+
+Run production prompts in this order:
+
+1. `P1` production scope lock.
+2. `P2` UI and gameplay polish.
+3. `P3` content and mission implementation.
+4. `P4` AdMob and analytics implementation.
+5. `P5` store assets and listing production.
+6. `P6` production release readiness.
+
 ## Prompt G1: Original Game Concept and MVP Plan
 
 Use this before writing code.

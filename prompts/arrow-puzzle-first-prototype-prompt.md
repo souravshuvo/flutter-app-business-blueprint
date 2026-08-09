@@ -128,3 +128,28 @@ Before accepting implementation:
 - No AdMob was added.
 - Tests cover the puzzle engine.
 
+## Production Path After Prototype
+
+Do not publish after only this first prototype prompt.
+
+After the prototype is playable and reviewed, use `prompts/game-production-ready-prompt-pack.md` to turn Arrow Puzzle into a production-ready version 1.
+
+Production v1 should include:
+
+- Polished UI and smooth puzzle feedback.
+- 50-100 validated local levels or equivalent puzzle content.
+- Level select or clear linear progression.
+- Local progress and restart/retry reliability.
+- Production-safe AdMob with frequency caps.
+- Analytics for level start, level complete, failed attempts, retries, hints or boosters if added, and ad impact.
+- Store assets based on real gameplay.
+- Release readiness using `checklists/play-store-release-checklist.md`.
+
+Recommended production sequence:
+
+1. Run Prompt P1 from `prompts/game-production-ready-prompt-pack.md` for the current repository.
+2. Run Prompt P2 for UI and gameplay polish.
+3. Run Prompt P3 for production content and levels.
+4. Run Prompt P4 for AdMob and analytics.
+5. Run Prompt P5 for store assets and listing.
+6. Run Prompt P6 for production release readiness.
