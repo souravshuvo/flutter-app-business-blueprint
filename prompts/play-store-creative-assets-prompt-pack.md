@@ -17,6 +17,17 @@ Create useful, truthful, policy-conscious Play Store creative assets that show t
 
 This pack is designed for Codex repository workflow. Codex should inspect the current repository first, use existing app evidence, and avoid fake UI or misleading claims.
 
+## Naming and Package Rule
+
+For new games in this app business, use this convention unless explicitly approved otherwise:
+
+- Store/display name: ASO-friendly, human-readable, truthful, and not keyword-stuffed.
+- Package name/application ID: `com.childhood.<game_slug>`.
+- `<game_slug>` should be lowercase ASCII, start with a letter, and use letters/numbers only where practical.
+- Keep display name and package name separate.
+- Do not use unauthorized real brands, official teams, copyrighted characters, fake affiliations, or misleading keywords.
+- Treat package name as permanent after Play Store publishing.
+
 ## Current Official Asset Checks
 
 Before final upload, verify the current official Google Play requirements:
@@ -82,23 +93,29 @@ Discover the app name, package name, app category, core features, screens, visua
 What I want from you:
 1. Summarize the app's core user value.
 2. Identify the likely target user.
-3. Identify the best 4-8 screenshot moments from the real app.
-4. Identify whether the app needs portrait screenshots, landscape screenshots, or both.
-5. Identify feature graphic direction.
-6. Identify app icon risks or improvement opportunities.
-7. Identify whether a preview video is useful for this app.
-8. Identify policy or misleading-claim risks for store creative.
-9. Create a prioritized creative asset plan.
+3. Propose or validate an ASO-friendly display name.
+4. Propose or validate the final package name using `com.childhood.<game_slug>` for new games.
+5. Identify the best 4-8 screenshot moments from the real app.
+6. Identify whether the app needs portrait screenshots, landscape screenshots, or both.
+7. Identify feature graphic direction.
+8. Identify app icon risks or improvement opportunities.
+9. Identify whether a preview video is useful for this app.
+10. Identify policy or misleading-claim risks for store creative.
+11. Create a prioritized creative asset plan.
 
 Rules:
 - Do not ask me for information visible in the repository.
 - Mark Play Console, live listing, reviews, or competitor data as unknown if not available.
 - Do not create assets yet.
 - Do not make fake claims.
+- Do not keyword-stuff the app name.
+- Do not use unauthorized real brands, official teams, copyrighted characters, or fake affiliation claims.
 - Recommend only assets that match the real app.
 
 Expected output:
 - App creative summary.
+- ASO-friendly display name recommendation.
+- Package name recommendation.
 - Screenshot plan.
 - Feature graphic direction.
 - App icon direction.

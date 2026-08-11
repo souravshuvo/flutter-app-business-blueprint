@@ -36,8 +36,32 @@ Every game must reach this standard before publishing:
 - Frequency caps exist before interstitial ads are used.
 - Firebase Analytics or equivalent event tracking is implemented if the app uses analytics.
 - Crash monitoring is planned or implemented before production release.
+- ASO-friendly app display name is chosen before store asset production.
+- Final package name follows the approved `com.childhood.<game_slug>` convention before Play Store upload.
 - Store listing assets show real gameplay.
 - Release checklist is completed before Play Store upload.
+
+## Naming and Package Convention
+
+Use this convention for every new game unless explicitly approved otherwise:
+
+- Store/display name: ASO-friendly, human-readable, truthful, and not keyword-stuffed.
+- Package name/application ID: `com.childhood.<game_slug>`.
+- `<game_slug>` should be lowercase ASCII, start with a letter, and use letters/numbers only where practical.
+- Do not use spaces, hyphens, emojis, punctuation, or generic words alone in the package slug.
+- Do not use real brands, official team names, copyrighted characters, or misleading keywords in the name or package.
+- Keep display name and package name separate. The display name can be keyword-friendly; the package name should be stable and clean.
+- Treat the package name as permanent after Play Store publishing. Changing it later normally means creating a new app listing.
+
+Examples:
+
+| Game | ASO-friendly display name idea | Package name |
+| --- | --- | --- |
+| Pen Cricket | Pen Cricket: Spin & Score | `com.childhood.pencricket` |
+| Emoji Chor-Police | Emoji Chor Police Party Game | `com.childhood.emojichorpolice` |
+| Sholo Guti | Sholo Guti: 16 Beads Game | `com.childhood.shologuti` |
+| Dots and Boxes | Dots and Boxes: Board Game | `com.childhood.dotsandboxes` |
+| Water Sort | Water Sort Puzzle Game | `com.childhood.watersort` |
 
 ## Suggested Minimum Content Targets
 
@@ -52,6 +76,9 @@ Use these as practical release targets, not permanent limits:
 - Space shooter: survival mode plus 20-30 waves or equivalent mission content.
 - Snake arena: offline bot arena plus 20-30 missions, objectives, or difficulty milestones.
 - Farming life: 30 progression steps, 6-10 crops, save/restore, and at least one meaningful upgrade path.
+- Emoji Chor-Police: single-player vs 3 AI bots, 4-player pass-and-play, 5-10 round match presets, local score history, and 20-30 achievements or challenge goals.
+- Sholo Guti: validated 37-node board graph, local two-player, player vs bot, move/capture validation tests, match history, and optional hints or undo.
+- Dots and Boxes: local two-player, player vs bot, 3-4 grid presets, line/box/extra-turn validation tests, match history, and optional hints or undo.
 - Arrow puzzle or other simple puzzle: 50-100 levels depending on level length.
 
 If the game is unusually complex, reduce content count but increase polish and QA. If the game is very simple, increase content count or add one small replayable mode.
@@ -83,10 +110,12 @@ What I want from you:
 4. Define required gameplay fixes before release.
 5. Define required level/content work.
 6. Define required AdMob and analytics work.
-7. Define required store asset work.
-8. Define release blockers.
-9. Create a small production v1 scope.
-10. Create implementation order.
+7. Propose 3-5 ASO-friendly display name options.
+8. Propose the final package name using `com.childhood.<game_slug>`.
+9. Define required store asset work.
+10. Define release blockers.
+11. Create a small production v1 scope.
+12. Create implementation order.
 
 Rules:
 - Keep version 1 small but complete.
@@ -94,12 +123,16 @@ Rules:
 - Do not add online multiplayer, login, live events, complex shop, or cloud sync unless explicitly approved.
 - Ads must not interrupt active gameplay.
 - User trust and Play policy safety come before revenue.
+- Display name must be truthful and not keyword-stuffed.
+- Package name must be stable, lowercase, and follow `com.childhood.<game_slug>` unless I approve another convention.
 - Wait for approval before implementation.
 
 Expected output:
 - Production v1 scope.
 - Required content target.
 - Polished UI checklist.
+- ASO name options.
+- Recommended package name.
 - AdMob and analytics checklist.
 - Store asset checklist.
 - Release blocker list.
@@ -199,7 +232,7 @@ Rules:
 - Rewarded ads may reward optional value such as continue, hint, extra moves, bonus coins, revive, or speed-up only when approved.
 - Interstitial ads may appear only at natural transitions such as level end, game over, or session break.
 - User experience and policy safety come before revenue.
-- Do not change production IDs, signing, package name, or release config unless explicitly approved.
+- Do not change production IDs, signing, package name, or release config unless this is a new unpublished app and I explicitly approve it.
 
 Expected output:
 - AdMob implemented.
@@ -224,21 +257,27 @@ Use `prompts/play-store-creative-assets-prompt-pack.md` if available.
 
 What I want from you:
 1. Inspect the current game screens and real gameplay.
-2. Create or update store listing copy.
-3. Create screenshot storyboard based on real gameplay.
-4. Create feature graphic brief or asset.
-5. Create app icon brief or asset.
-6. Create preview video script or production package.
-7. Prepare final Play Console upload checklist.
+2. Confirm the approved ASO-friendly display name.
+3. Confirm the final package name follows `com.childhood.<game_slug>`.
+4. Create or update store listing copy.
+5. Create screenshot storyboard based on real gameplay.
+6. Create feature graphic brief or asset.
+7. Create app icon brief or asset.
+8. Create preview video script or production package.
+9. Prepare final Play Console upload checklist.
 
 Rules:
 - Do not fake gameplay.
 - Do not show unavailable features.
 - Do not use fake rankings, fake awards, fake reviews, fake downloads, or fake earnings.
+- Do not keyword-stuff the app name or descriptions.
+- Do not use unauthorized real brands, official teams, copyrighted characters, or misleading affiliation claims.
 - Keep claims truthful and policy-safe.
 - Do not publish anything.
 
 Expected output:
+- Approved display name.
+- Final package name.
 - Store listing package.
 - Screenshot plan or assets.
 - Feature graphic plan or asset.
@@ -261,12 +300,13 @@ What I want from you:
 1. Review production v1 scope completion.
 2. Review gameplay/content readiness.
 3. Review UI polish readiness.
-4. Review AdMob and analytics readiness.
-5. Review privacy, permissions, and Data safety impact.
-6. Review store listing assets readiness.
-7. Review tests and verification status.
-8. Identify release blockers.
-9. Recommend internal test, closed test, delay, or production submission.
+4. Review approved display name and package name readiness.
+5. Review AdMob and analytics readiness.
+6. Review privacy, permissions, and Data safety impact.
+7. Review store listing assets readiness.
+8. Review tests and verification status.
+9. Identify release blockers.
+10. Recommend internal test, closed test, delay, or production submission.
 
 Rules:
 - Do not claim release readiness if required checks were not run.
@@ -276,6 +316,7 @@ Rules:
 
 Expected output:
 - Release readiness report.
+- Display name and package name check.
 - Blocker list.
 - Manual QA checklist.
 - Play Console checklist.
@@ -317,6 +358,8 @@ The game is production-ready when:
 - Core gameplay is complete.
 - UI feels polished and consistent.
 - Enough content exists for version 1.
+- ASO-friendly display name is approved.
+- Package name follows `com.childhood.<game_slug>` before publishing.
 - AdMob and analytics are implemented safely.
 - Ads do not harm active gameplay.
 - Store assets are truthful and based on real gameplay.

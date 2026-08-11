@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Production Prompt Copy</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --ink: #182233;
+      --muted: #5d6b7d;
+      --line: #d8e0ea;
+      --brand: #2457a6;
+      --brand-dark: #183f7a;
+      --code: #f2f5f9;
+      --ok: #16723a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    header {
+      padding: 32px 20px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    header p {
+      margin: 8px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 28px));
+      margin: 22px auto 48px;
+    }
+
+    .note {
+      background: #fff8e6;
+      border: 1px solid #ead48f;
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #5c4917;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 18px 0;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .tab.active {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .prompt-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 14px 0;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(30, 45, 70, 0.04);
+    }
+
+    .prompt-head {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .prompt-title {
+      font-weight: 700;
+      color: #1d3557;
+    }
+
+    .copy-btn {
+      border: 0;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      min-width: 88px;
+    }
+
+    .copy-btn:hover {
+      background: var(--brand-dark);
+    }
+
+    .copy-btn.copied {
+      background: var(--ok);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      resize: vertical;
+      border: 0;
+      display: block;
+      padding: 14px;
+      background: var(--code);
+      color: #1d2430;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.45;
+      outline: none;
+    }
+
+    .short textarea {
+      min-height: 150px;
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 24px 12px 40px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Game Production Prompt Copy</h1>
+    <p>Double-click this HTML file to open it, then press a Copy button. Use these prompts from the actual game repository task.</p>
+  </header>
+
+  <main>
+    <div class="note">
+      Best workflow: run one phase at a time. If a phase finds blockers, fix them before moving to the next phase.
+      For new unpublished games, package name should follow <strong>com.childhood.&lt;game_slug&gt;</strong>.
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-target="production">Production P1-P6</button>
+      <button class="tab" data-target="store">Store S1-S6</button>
+      <button class="tab" data-target="assets">Asset SB Prompts</button>
+    </div>
+
+    <section id="production" class="section active">
+      <div class="prompt-card">
+        <div class="prompt-head"><div class="prompt-title">P1 - Strict Audit / Scope Lock</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
+
+For the current repository, run Prompt P1.
+
+Be strict. Inspect whether the game is actually production-ready or still prototype-level.
+
+Check:
+- Architecture mismatch.
+- Incomplete gameplay.
+- Placeholder/fake functionality.
+- Missing screens/states.
+- Missing levels/content/modes.
+- Weak UI polish.
+- Missing save/progress.
+- Missing AdMob/analytics.
+- Missing ASO-friendly app name.
+- Missing package name convention: `com.childhood.&lt;game_slug&gt;`.
+- Release blockers.
+
+Do not edit files yet.
+
+Expected output:
+- Production v1 checklist.
+- Blockers.
+- Approved implementation order.</textarea>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><div class="prompt-title">P2 - UI + Gameplay Polish</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
+
+All P1 production v1 scope items are approved.
+
+For the current repository, run Prompt P2.
+
+You are approved to modify code/docs for UI and gameplay polish only.
+
+Fix:
+- Architecture mismatch if it blocks game correctness.
+- Broken/incomplete core gameplay.
+- Placeholder/fake behavior.
+- Missing menus, pause/restart, result screens, settings.
+- Weak mobile UI and feedback.
+
+Do not add AdMob yet.
+Do not touch unrelated files.
+Do not run heavy build/install/emulator unless essential.</textarea>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><div class="prompt-title">P3 - Levels / Content / Modes</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
+
+For the current repository, run Prompt P3 using the approved production content target.
+
+You are approved to add enough production v1 content.
+
+Add or complete:
+- Levels, missions, waves, boards, puzzles, modes, AI modes, or progression.
+- Save/progress where needed.
+- Validation/tests for game rules where practical.
+
+Do not add AdMob yet.
+Do not touch unrelated files.
+Do not run heavy build/install/emulator unless essential.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">P4 - AdMob + Analytics</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
+
+For the current repository, run Prompt P4.
+
+You are approved to implement production-safe AdMob and analytics.
+
+Rules:
+- Ads must not interrupt active gameplay.
+- Use test/prod ad separation.
+- Add frequency caps before interstitials.
+- Ad failure must not block gameplay.
+- Add analytics for gameplay, difficulty, retention, and ad impact.
+- Keep package name as `com.childhood.&lt;game_slug&gt;` for new unpublished apps.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">P5 - Store / ASO / Assets Plan</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
+
+For the current repository, run Prompt P5.
+
+Confirm:
+- ASO-friendly app name.
+- Package name: `com.childhood.&lt;game_slug&gt;`.
+- Store listing copy.
+- Screenshot plan.
+- Feature graphic brief.
+- App icon brief.
+- Preview video script.
+
+Do not fake gameplay.
+Do not show unavailable features.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">P6 - Final Release Check</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
+
+For the current repository, run Prompt P6.
+
+Be strict. Do not claim production-ready unless checks support it.
+
+Expected output:
+- Release readiness report.
+- Blockers.
+- Manual QA checklist.
+- Play Console checklist.
+- Internal test / closed test / not ready recommendation.</textarea>
+      </div>
+    </section>
+
+    <section id="store" class="section">
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S1 - Store Creative Audit</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S1.
+
+Be strict:
+- Inspect the repository directly.
+- Validate ASO-friendly app name.
+- Validate package name: `com.childhood.&lt;game_slug&gt;` for new unpublished games.
+- Identify real gameplay screens.
+- Identify missing/weak screenshots, icon, feature graphic, and preview video.
+- Do not create final assets yet.
+- Do not run build/install/emulator unless essential.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S2 - Screenshot Storyboard</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S2 using the approved S1 creative audit.
+
+Create a screenshot storyboard and screenshot text only.
+
+Rules:
+- Use real gameplay only.
+- Do not show unavailable features.
+- Keep text short and readable.
+- Do not create final image files yet.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S3 - Feature Graphic Brief</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S3.
+
+Create the feature graphic concept/brief only.
+
+Rules:
+- Must match the real game.
+- No fake awards/rankings/downloads.
+- No misleading claims.
+- Do not create final image file yet.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S4 - App Icon Brief</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S4.
+
+Create the app icon concept/brief only.
+
+Rules:
+- Simple, readable, original.
+- No copied icons.
+- No tiny unreadable text.
+- Do not create final icon files yet.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S5 - Preview Video Script</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S5.
+
+Create preview video script and shot list only.
+
+Rules:
+- Show real gameplay.
+- First 30 seconds must be strong.
+- Do not show unavailable features.
+- Do not create final video yet.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S6 - Final Asset QA</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S6.
+
+Be strict:
+- Check screenshot truthfulness.
+- Check feature graphic.
+- Check app icon.
+- Check preview video package.
+- Check ASO name.
+- Check package name: `com.childhood.&lt;game_slug&gt;`.
+- Check misleading claims.
+- Check Play Store upload readiness.
+
+Do not publish anything.</textarea>
+      </div>
+    </section>
+
+    <section id="assets" class="section">
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S2B - Create Screenshot Assets</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S2B using the approved screenshot storyboard.
+
+You are approved to create final screenshot assets where practical.
+
+Rules:
+- Use actual app UI or real captured gameplay evidence.
+- Do not fake gameplay.
+- Do not show unavailable features.
+- Do not run emulator/device unless essential and approved.</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S3B - Create Feature Graphic</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S3B using the approved feature graphic brief.
+
+You are approved to create the final feature graphic asset where practical.
+
+Target:
+- 1024 x 500
+- JPEG or 24-bit PNG without alpha
+- Show the real game theme honestly</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S4B - Create App Icon</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S4B using the approved app icon brief.
+
+You are approved to create final app icon assets where practical.
+
+Target:
+- 512 x 512 Play Store icon
+- App launcher icon source if practical
+- Original and readable at small size</textarea>
+      </div>
+
+      <div class="prompt-card short">
+        <div class="prompt-head"><div class="prompt-title">S5B - Video Production Package</div><button class="copy-btn">Copy</button></div>
+        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+
+For the current repository, run Prompt S5B using the approved preview video script.
+
+You are approved to create a preview video production package where practical.
+
+Do not fake gameplay.
+Do not upload anything.</textarea>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Local helper file for the Flutter App Business Blueprint prompt system.
+  </footer>
+
+  <script>
+    document.querySelectorAll(".tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".section").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(button.dataset.target).classList.add("active");
+      });
+    });
+
+    async function copyText(textarea, button) {
+      const text = textarea.value.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (error) {
+        textarea.focus();
+        textarea.select();
+        document.execCommand("copy");
+      }
+      button.textContent = "Copied";
+      button.classList.add("copied");
+      window.setTimeout(() => {
+        button.textContent = "Copy";
+        button.classList.remove("copied");
+      }, 1400);
+    }
+
+    document.querySelectorAll(".prompt-card").forEach((card) => {
+      const button = card.querySelector(".copy-btn");
+      const textarea = card.querySelector("textarea");
+      button.addEventListener("click", () => copyText(textarea, button));
+      textarea.addEventListener("dblclick", () => copyText(textarea, button));
+    });
+  </script>
+</body>
+</html>

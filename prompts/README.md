@@ -15,6 +15,11 @@ Use this folder for prompts that help with planning, feature implementation, bug
 - `bubble-shooter-game-prompt-process.md` - Plan and build an original bubble shooter game from concept to prototype, levels, boosters, monetization, store assets, testing, and release.
 - `space-shooter-game-prompt-process.md` - Plan and build an original space shooter game from concept to prototype, waves, weapons, monetization, store assets, testing, and release.
 - `rapid-jump-game-prompt-process.md` - Plan and build an original rapid jump arcade game from concept to prototype, platforms, missions, monetization, store assets, testing, and release.
+- `pen-cricket-game-prompt-process.md` - Plan and build an original Pen Cricket game from concept to prototype, spinner rules, match modes, monetization, store assets, testing, and release.
+- `football-game-prompt-process.md` - Plan and build an original football game from concept to prototype, controls, challenges, monetization, store assets, testing, and release.
+- `emoji-chor-police-game-prompt-process.md` - Plan and build an original emoji Chor-Police game from concept to prototype, hidden roles, bots, pass-and-play, monetization, store assets, testing, and release.
+- `sholo-guti-game-prompt-process.md` - Plan and build an original Sholo Guti game from board validation to prototype, local play, bot play, monetization, store assets, testing, and release.
+- `dots-and-boxes-game-prompt-process.md` - Plan and build an original Dots and Boxes game from grid validation to prototype, local play, bot play, monetization, store assets, testing, and release.
 - `crowd-control-arcade-game-prompt-process.md` - Plan and build an original Mob Control-style crowd arcade game from concept to prototype, gates, levels, monetization, store assets, testing, and release.
 - `tic-tac-toe-game-prompt-process.md` - Plan and build a polished original tic tac toe game from concept to prototype, AI, variants, monetization, store assets, testing, and release.
 - `match-puzzle-game-prompt-process.md` - Plan and build an original match puzzle game from concept to prototype, levels, blockers, boosters, monetization, store assets, testing, and release.
