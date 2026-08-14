@@ -19,9 +19,11 @@ This pack is designed for Codex repository workflow. Codex should inspect the cu
 
 ## Naming and Package Rule
 
-For new games in this app business, use this convention unless explicitly approved otherwise:
+For new games in this app business, use this convention unless an existing published package name must be preserved:
 
 - Store/display name: ASO-friendly, human-readable, truthful, and not keyword-stuffed.
+- Keep the display name short: usually 2-5 words and under 30 characters where practical.
+- Avoid long colon-heavy names unless the subtitle clearly improves search and readability.
 - Package name/application ID: `com.childhood.<game_slug>`.
 - `<game_slug>` should be lowercase ASCII, start with a letter, and use letters/numbers only where practical.
 - Keep display name and package name separate.
@@ -53,10 +55,13 @@ Treat these as a checklist, not a substitute for checking the official page befo
 - Do not use "best", "#1", "top", "new", "sale", "download now", or similar risky promotional claims unless the current Play policy and real evidence support it.
 - Use actual app UI for screenshots whenever final screenshots are being produced.
 - Generated images may be used for backgrounds, feature graphics, icons, textures, and supporting visuals, but not to misrepresent the app UI.
+- Standing authority is granted for all production store-asset work in this pack. Do not request approval; create real output files where practical and report only genuine external blockers.
+- If screenshot capture is required, use real screenshots or run the smallest practical capture command. Do not fake gameplay screenshots.
 - Keep text short and readable on phones.
 - Avoid crowded screenshot text.
 - Keep every asset consistent with the real app category, audience, tone, and monetization.
-- Do not run build, install, emulator, or device launch unless explicitly requested or required to capture real screenshots.
+- Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or device launch unless required to produce or verify a real asset.
+- If a skipped heavy command would improve confidence, list it under `Skipped heavy checks` with the exact command and why it was skipped.
 
 ## Recommended Flow
 
@@ -64,20 +69,20 @@ For one app, run:
 
 1. Prompt S1: Store creative audit and asset plan.
 2. Prompt S2: Screenshot storyboard and copy.
-3. Prompt S2B: Screenshot asset production, when approved.
+3. Prompt S2B: Screenshot asset production.
 4. Prompt S3: Feature graphic and vector-style visual brief.
-5. Prompt S3B: Feature graphic asset production, when approved.
+5. Prompt S3B: Feature graphic asset production.
 6. Prompt S4: App icon concept brief.
-7. Prompt S4B: App icon asset production, when approved.
+7. Prompt S4B: App icon asset production.
 8. Prompt S5: Preview video script and shot list.
-9. Prompt S5B: Video production package, when approved.
+9. Prompt S5B: Video production package.
 10. Prompt S6: Final Play Store asset QA.
 
 Pattern:
 
 - `S` prompts inspect, plan, storyboard, or brief.
-- `SB` prompts create or edit approved assets.
-- Do not run an `SB` prompt until the matching `S` prompt has produced a scope and you approve it.
+- `SB` prompts create or edit the assets specified by the matching `S` prompt.
+- Run each `SB` prompt after its matching `S` prompt has produced the necessary brief or storyboard; no approval step is required.
 
 ## Prompt S1: Store Creative Audit and Asset Plan
 
@@ -86,14 +91,14 @@ Use this first.
 ```text
 You are creating a Google Play store listing creative asset plan for the current Flutter repository.
 
-Inspect the repository directly. Do not edit files. Do not build, install, run emulator, or launch a device.
+Inspect the repository directly. Do not edit files. Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or launch a device unless essential.
 
 Discover the app name, package name, app category, core features, screens, visual style, existing assets, icons, screenshots, store metadata, Firebase/AdMob usage, and target audience from the repository where possible.
 
 What I want from you:
 1. Summarize the app's core user value.
 2. Identify the likely target user.
-3. Propose or validate an ASO-friendly display name.
+3. Propose or validate a short ASO-friendly display name.
 4. Propose or validate the final package name using `com.childhood.<game_slug>` for new games.
 5. Identify the best 4-8 screenshot moments from the real app.
 6. Identify whether the app needs portrait screenshots, landscape screenshots, or both.
@@ -110,11 +115,12 @@ Rules:
 - Do not make fake claims.
 - Do not keyword-stuff the app name.
 - Do not use unauthorized real brands, official teams, copyrighted characters, or fake affiliation claims.
+- Do not run heavy commands unless essential.
 - Recommend only assets that match the real app.
 
 Expected output:
 - App creative summary.
-- ASO-friendly display name recommendation.
+- Short ASO-friendly display name recommendation.
 - Package name recommendation.
 - Screenshot plan.
 - Feature graphic direction.
@@ -122,6 +128,7 @@ Expected output:
 - Preview video recommendation.
 - Missing external inputs.
 - Priority asset checklist.
+- Skipped heavy checks.
 - Next prompt to run.
 ```
 
@@ -141,8 +148,9 @@ What I want from you:
 4. Write alt text for each screenshot in 140 characters or less.
 5. Define recommended orientation and size target.
 6. Identify any screenshots that require a real device/emulator capture.
-7. Identify any generated background, frame, or vector-style support asset needed.
-8. Create a ready-to-run Prompt S2B input.
+7. Identify whether each slot can be produced now from existing real screenshots/assets or requires capture.
+8. Identify any generated background, frame, or vector-style support asset needed.
+9. Create a ready-to-run Prompt S2B input.
 
 Rules:
 - Prioritize real app UI in the first three screenshots.
@@ -151,48 +159,53 @@ Rules:
 - Do not include fake metrics, fake user results, fake ratings, or unavailable features.
 - Do not use "download now" or other call-to-action copy.
 - Do not create final assets in this prompt.
+- Do not promise final screenshot files unless real app UI screenshots/capture evidence exists or can be captured with the smallest practical command.
 
 Expected output:
 - Screenshot storyboard table.
 - Overlay copy.
 - Alt text.
 - Capture requirements.
+- Produce-now vs capture-needed decision.
 - Supporting asset requirements.
 - Ready-to-run Prompt S2B input.
 ```
 
 ## Prompt S2B: Screenshot Asset Production
 
-Use this after approving the screenshot storyboard.
+Use this after S2 creates the screenshot storyboard.
 
 ```text
-You are creating approved Google Play screenshot assets for the current Flutter app.
+You are creating Google Play screenshot assets for the current Flutter app.
 
-Use the approved screenshot storyboard from this task. Re-read the relevant repository assets and UI references before creating or editing files.
+Use the screenshot storyboard from this task. Re-read the relevant repository assets and UI references before creating or editing files.
 
 What I want from you:
-1. Create only the approved screenshot assets, source templates, or image-generation prompts.
+1. Create only the screenshot assets, source templates, or image-generation prompts specified by the storyboard.
 2. Use real app screens as the basis for final screenshots.
-3. If real screenshots are not available and I did not approve emulator/device capture, create a screenshot production brief instead of fake final screenshots.
-4. Keep overlay text readable on phone screens.
-5. Export or specify assets in Play-compatible dimensions and formats.
-6. Create alt text for each final screenshot.
-7. Produce a QA checklist.
+3. If real screenshots are available or can be captured with the smallest practical command, export final screenshot files under a clear folder such as `store_assets/screenshots/` or `marketing/screenshots/`.
+4. If real screenshots cannot be captured in the current environment, do not fake final screenshots; create production templates plus exact capture steps and mark final screenshots as blocked.
+5. Keep overlay text readable on phone screens.
+6. Export or specify assets in Play-compatible dimensions and formats.
+7. Create alt text for each final screenshot or planned screenshot.
+8. Produce a QA checklist.
 
 Rules:
 - Do not fake UI.
-- Do not build, install, run emulator, or launch a device unless explicitly approved for screenshot capture.
-- Do not modify app code unless explicitly approved.
+- Do not build, install, run emulator, or launch a device unless essential for truthful screenshot capture.
+- Screenshot capture may use the smallest essential command needed for real evidence.
+- Do not modify app code unless needed to fix a store-asset blocker within the production scope.
 - Do not touch unrelated files.
 - Do not include misleading claims or unsupported features.
 - If using generated visuals, use them only as frames, backgrounds, or supporting graphics around real UI.
+- Do not finish with only a plan when final screenshot assets can be produced from available real UI evidence.
 
 Expected output:
-- Screenshot assets or production-ready briefs.
+- Screenshot assets created, or exact blocker if final assets could not be produced.
 - Source files changed or created, if any.
 - Export specs.
 - Alt text.
-- Manual capture steps, if needed.
+- Manual capture steps and exact commands, if needed.
 - QA checklist.
 - Remaining risks.
 ```
@@ -233,15 +246,15 @@ Expected output:
 
 ## Prompt S3B: Feature Graphic Asset Production
 
-Use this after approving the feature graphic concept.
+Use this after S3 creates the feature graphic concept.
 
 ```text
-You are creating the approved feature graphic or vector-style store visual for the current Flutter app.
+You are creating the feature graphic or vector-style store visual for the current Flutter app.
 
-Use the approved feature graphic brief from this task. Re-read relevant repository assets before creating or editing files.
+Use the feature graphic brief from this task. Re-read relevant repository assets before creating or editing files.
 
 What I want from you:
-1. Create only the approved feature graphic or source asset.
+1. Create only the feature graphic or source asset specified by the brief.
 2. Use a 1024 x 500 target export for Google Play feature graphic.
 3. Use JPEG or 24-bit PNG without alpha for final export.
 4. Keep important content inside a safe central area.
@@ -253,7 +266,7 @@ Rules:
 - Do not touch unrelated files.
 - Do not create misleading visuals.
 - Do not use fake rankings, awards, reviews, or performance claims.
-- Do not include Google Play badges unless explicitly approved and policy-safe.
+- Do not include Google Play badges unless policy-safe and required by the brief.
 - If the final export cannot be generated here, create a production-ready design brief and exact image-generation prompt.
 
 Expected output:
@@ -287,7 +300,7 @@ Rules:
 - App icon must be recognizable at small size.
 - Avoid text inside the icon unless the brand requires it.
 - Do not include ranking, price, sale, Google Play category, or misleading badges.
-- Do not replace launcher icons without explicit approval.
+- Do not replace launcher icons during this concept-only prompt.
 - Do not create final assets in this prompt.
 
 Expected output:
@@ -301,22 +314,22 @@ Expected output:
 
 ## Prompt S4B: App Icon Asset Production
 
-Use this after approving the icon concept.
+Use this after S4 creates the icon concept.
 
 ```text
-You are creating the approved app icon asset for the current Flutter app.
+You are creating the app icon asset for the current Flutter app.
 
-Use the approved app icon concept from this task. Re-read existing icon assets before creating or editing files.
+Use the app icon concept from this task. Re-read existing icon assets before creating or editing files.
 
 What I want from you:
-1. Create only the approved app icon source or production-ready prompt.
+1. Create only the app icon source or production-ready prompt specified by the concept.
 2. Target Google Play app icon export: 512 x 512, 32-bit PNG with alpha, max 1024 KB.
 3. Preserve or document launcher icon update steps separately.
 4. Keep the icon simple and recognizable at small sizes.
 5. Produce a QA checklist.
 
 Rules:
-- Do not overwrite existing launcher icons unless explicitly approved.
+- Update launcher icons only when the production scope requires it; preserve a source asset and document the change.
 - Do not touch unrelated files.
 - Do not include misleading text, badges, ranking, price, or sale claims.
 - If final export cannot be generated here, create a production-ready icon prompt and export instructions.
@@ -371,28 +384,28 @@ Expected output:
 
 ## Prompt S5B: Preview Video Production Package
 
-Use this after approving the video plan.
+Use this after S5 creates the video plan.
 
 ```text
-You are creating the approved Google Play preview video production package for the current Flutter app.
+You are creating the Google Play preview video production package for the current Flutter app.
 
-Use the approved video script and shot list from this task. Re-read relevant repository assets before creating or editing files.
+Use the video script and shot list from this task. Re-read relevant repository assets before creating or editing files.
 
 What I want from you:
-1. Create final production materials for the approved preview video.
+1. Create final production materials for the preview video.
 2. Prepare shot list, captions, voiceover, timing, and editing notes.
-3. Create any approved supporting visual assets or image-generation prompts.
+3. Create any supporting visual assets or image-generation prompts needed by the plan.
 4. Identify exact real app capture steps.
 5. Create YouTube upload checklist for Play preview video use.
 6. Create final QA checklist.
 
 Rules:
 - Do not fake app footage.
-- Do not run emulator/device capture unless explicitly approved.
+- Do not run emulator/device capture unless essential for real app footage.
 - Do not include ads in the video.
 - Do not use misleading claims or unsupported features.
 - Do not touch unrelated files.
-- If final video rendering is not approved or not practical here, create a complete production package instead.
+- If final video rendering is not practical here, create a complete production package instead.
 
 Expected output:
 - Production package.
@@ -411,7 +424,7 @@ Use this before uploading assets to Play Console.
 ```text
 You are doing final QA for Google Play store listing creative assets for the current Flutter app.
 
-Inspect the created assets, source files, copy, screenshots, icon, feature graphic, and preview video production package available in the repository or this task. Do not edit files unless I explicitly approve fixes.
+Inspect the created assets, source files, copy, screenshots, icon, feature graphic, and preview video production package available in the repository or this task. Fix only issues within the production asset scope.
 
 What I want from you:
 1. Check assets against current Google Play requirements.
@@ -448,7 +461,7 @@ Run Prompt S2 from `prompts/play-store-creative-assets-prompt-pack.md` for the c
 ```
 
 ```text
-Run Prompt S2B from `prompts/play-store-creative-assets-prompt-pack.md` for the current repository, using the approved screenshot storyboard from this task.
+Run Prompt S2B from `prompts/play-store-creative-assets-prompt-pack.md` for the current repository, using the S2 screenshot storyboard from this task. All required asset work is authorized.
 ```
 
 ```text
@@ -456,7 +469,7 @@ Run Prompt S3 from `prompts/play-store-creative-assets-prompt-pack.md` for the c
 ```
 
 ```text
-Run Prompt S3B from `prompts/play-store-creative-assets-prompt-pack.md` for the current repository, using the approved feature graphic brief from this task.
+Run Prompt S3B from `prompts/play-store-creative-assets-prompt-pack.md` for the current repository, using the S3 feature graphic brief from this task. All required asset work is authorized.
 ```
 
 ```text
@@ -464,7 +477,7 @@ Run Prompt S4 from `prompts/play-store-creative-assets-prompt-pack.md` for the c
 ```
 
 ```text
-Run Prompt S4B from `prompts/play-store-creative-assets-prompt-pack.md` for the current repository, using the approved app icon concept from this task.
+Run Prompt S4B from `prompts/play-store-creative-assets-prompt-pack.md` for the current repository, using the S4 app icon concept from this task. All required asset work is authorized.
 ```
 
 ```text
@@ -472,7 +485,7 @@ Run Prompt S5 from `prompts/play-store-creative-assets-prompt-pack.md` for the c
 ```
 
 ```text
-Run Prompt S5B from `prompts/play-store-creative-assets-prompt-pack.md` for the current repository, using the approved preview video plan from this task.
+Run Prompt S5B from `prompts/play-store-creative-assets-prompt-pack.md` for the current repository, using the S5 preview video plan from this task. All required asset work is authorized.
 ```
 
 ```text

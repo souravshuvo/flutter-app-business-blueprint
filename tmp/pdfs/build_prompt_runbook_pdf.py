@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 from xml.sax.saxutils import escape
 
 from reportlab.lib import colors
@@ -178,7 +178,15 @@ Check:
 - Placeholder/fake functionality.
 - Missing screens/states.
 - Missing levels/content/modes.
+- Confusing controls or weak touch handling.
+- Weak/missing animation and feedback.
+- Weak game hub/dashboard.
+- Generic level-list UX where the genre needs a better flow.
+- Boring gameplay loop with no replay hook.
+- Sound/haptics toggles exist but gameplay does not trigger feedback.
+- Confusing onboarding or unclear first action.
 - Weak UI polish.
+- Screenshot-ready gameplay/screens missing.
 - Missing save/progress.
 - Missing AdMob/analytics.
 - Missing ASO-friendly app name.
@@ -186,34 +194,96 @@ Check:
 - Release blockers.
 
 Do not edit files yet.
+Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
 
 Expected output:
 - Production v1 checklist.
 - Blockers.
 - Approved implementation order.
+- Skipped heavy checks.
 """,
     ),
     (
-        "Step P2 - UI + Gameplay Polish",
+        "Step P2 - UI + Animation + Game Feel",
         r"""
 Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
 
-All P1 production v1 scope items are approved.
+All P1 production v1 scope items are authorized; do not request approval.
 
 For the current repository, run Prompt P2.
 
-You are approved to modify code/docs for UI and gameplay polish only.
+You are approved to modify code/docs for UI, animation, controls, and gameplay polish only.
 
 Fix:
 - Architecture mismatch if it blocks game correctness.
 - Broken/incomplete core gameplay.
 - Placeholder/fake behavior.
+- Confusing first-time flow.
+- Childish, template-like, or placeholder-looking UI.
+- Weak dashboard/home that does not feel like a real game hub.
+- Generic level section where quick play, missions, challenges, rounds, waves, endless, or campaign flow would be better.
+- Gameplay has no replay hook, score chase, combo, streak, mission, unlock, achievement, or progression motivation.
+- Poor controls, small tap targets, bad drag/touch handling, or unclear hit areas.
+- Missing/weak visual feedback for valid moves, invalid moves, score, win, loss, rewards, retry, and errors.
+- Missing lightweight feedback sounds/haptics for tap, valid action, invalid action, score/reward, win, and loss.
+- Missing/slow/meaningless animations.
 - Missing menus, pause/restart, result screens, settings.
-- Weak mobile UI and feedback.
+- Weak mobile UI, HUD readability, spacing, contrast, or small-screen layout.
+- Missing simple onboarding, help, or hints where the game is not self-explanatory.
 
 Do not add AdMob yet.
 Do not touch unrelated files.
-Do not run heavy build/install/emulator unless essential.
+Do not ship a childish, template-like, or placeholder-looking UI.
+Do not force every game into a generic levels screen.
+Do not add slow decorative animation that blocks repeated play.
+Use lightweight built-in/system feedback sounds and haptics for core moments without adding custom audio assets or new audio packages.
+Add or verify sound and haptic toggles in settings.
+Do not add custom sound assets, music, sound packs, or audio dependencies unless essential.
+If built-in feedback sound cannot work reliably, report the exact blocker instead of claiming sound is done.
+Do not let text, buttons, ads, HUD, or dialogs overlap active gameplay.
+Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
+
+Expected output:
+- UX/game-feel checklist.
+- Professional hub/dashboard changes.
+- Animation and feedback changes.
+- Feedback sound/haptic coverage.
+- Engagement/replay hook changes.
+- Skipped heavy checks.
+- Manual QA steps for first-time user flow, controls, and small screens.
+""",
+    ),
+    (
+        "Step P2B - Pro Game Vibe Rescue",
+        r"""
+Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
+
+For the current repository, run Prompt P2B.
+
+The current result still feels amateur. You are approved to fix professional game vibe, dashboard UX, gameplay feel, feedback, and screenshot-ready screens only.
+
+Fix:
+- Top reasons the game looks childish, generic, or prototype-like.
+- Weak home/dashboard; make it a useful game hub.
+- Generic level-list UX; replace it when the genre needs quick play, missions, challenges, rounds, waves, endless, campaign, or continue flow.
+- Boring gameplay; add a small replay hook such as score chase, combo, streak, missions, stars, unlocks, achievements, or escalating challenge.
+- Weak result screens; make retry/next/continue natural.
+- Sound/haptic feedback not triggered during real gameplay.
+- Missing screenshot-ready moments/screens.
+
+Do not add AdMob.
+Do not add login, online multiplayer, cloud sync, fake online opponents, fake rewards, or heavy economy systems.
+Do not add custom audio assets or audio dependencies unless sound cannot work reliably with built-in feedback; then use the smallest practical local audio approach and report it.
+Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
+
+Expected output:
+- Top 10 amateur-feel causes found.
+- Professional hub/dashboard changes.
+- Gameplay engagement changes.
+- Sound/haptic trigger coverage.
+- Screenshot-ready screens created or improved.
+- Skipped heavy checks.
+- Remaining risks.
 """,
     ),
     (
@@ -221,18 +291,64 @@ Do not run heavy build/install/emulator unless essential.
         r"""
 Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
 
-For the current repository, run Prompt P3 using the approved production content target.
+For the current repository, run Prompt P3 using the P1 production content target. All required work is authorized.
 
-You are approved to add enough production v1 content.
+You are authorized to add enough production v1 content.
 
 Add or complete:
-- Levels, missions, waves, boards, puzzles, modes, AI modes, or progression.
+- Genre-appropriate content: levels, missions, waves, boards, puzzles, modes, AI modes, rounds, challenges, achievements, or progression.
 - Save/progress where needed.
+- Replay goals such as score chase, stars, streaks, missions, unlocks, or achievements where appropriate.
 - Validation/tests for game rules where practical.
 
 Do not add AdMob yet.
 Do not touch unrelated files.
-Do not run heavy build/install/emulator unless essential.
+Do not force a visible level section if quick play, missions, rounds, waves, endless mode, or challenge flow is better.
+Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
+
+Expected output:
+- Content added.
+- Skipped heavy checks.
+- Remaining risks.
+""",
+    ),
+    (
+        "Step P2C - Visual Gameplay Iteration",
+        r"""
+Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
+
+For the current repository, run Prompt P2C.
+
+Use available screenshots, screen recording, manual play notes, QA notes, or previous findings from this task.
+
+Goal:
+- Judge the actual first 10 seconds of play.
+- Review home/dashboard, first play entry, gameplay screen, pause/settings, result screen, and retry/next flow.
+- Check whether the game looks professional, fun, readable, and screenshot-ready.
+- Check whether gameplay has a reason to continue: score chase, combo, streak, mission, stars, unlock, achievement, progression, or escalating challenge.
+- Check whether sounds/haptics trigger from real gameplay events and respect settings.
+- Score the game using the 95% Game Feel Gate: first 10 seconds 15, visual UI/hub/HUD/results 20, controls/touch/small-screen 15, gameplay/replay/progression 20, sound/haptics 10, content/modes 10, screenshot readiness 10.
+- Fix the highest-impact 3-5 visual/gameplay feel issues only.
+
+Rules:
+- Do not claim real game feel is verified unless screenshots, recording, live app output, or manual play evidence was inspected.
+- Do not claim 95%+ unless real visual/play evidence was inspected.
+- If no visual evidence is available, run the smallest practical visual check when possible; otherwise mark visual gameplay feel as not verified and list exact manual checks.
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or device capture unless essential.
+- When visual capture is essential, run only the smallest practical command needed.
+- Do not add AdMob, login, cloud sync, fake online features, or unrelated systems.
+
+Expected output:
+- Evidence used.
+- Visual/gameplay feel verdict.
+- 95% Game Feel Gate score and pass/iterate/rescue decision.
+- Top feel problems found.
+- Fixes implemented this iteration.
+- Sound/haptic verification status.
+- Screenshot-readiness status.
+- Skipped heavy checks.
+- Next manual play checklist.
+- Remaining risks.
 """,
     ),
     (
@@ -251,6 +367,7 @@ Rules:
 - Ad failure must not block gameplay.
 - Add analytics for gameplay, difficulty, retention, and ad impact.
 - Keep package name as `com.childhood.<game_slug>` for new unpublished apps.
+- Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
 """,
     ),
     (
@@ -265,12 +382,15 @@ Confirm:
 - Package name: `com.childhood.<game_slug>`.
 - Store listing copy.
 - Screenshot plan.
+- Screenshot asset production or exact screenshot capture blocker if assets are approved.
 - Feature graphic brief.
 - App icon brief.
 - Preview video script.
 
 Do not fake gameplay.
 Do not show unavailable features.
+Do not silently skip screenshots. Create assets, create source templates, or list exact real capture blockers.
+Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.
 """,
     ),
     (
@@ -281,10 +401,14 @@ Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-productio
 For the current repository, run Prompt P6.
 
 Be strict. Do not claim production-ready unless checks support it.
+Do not recommend store asset production, AdMob rollout, or release if the latest real-evidence game feel score is below 95 unless I explicitly accept the risk.
+Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
 
 Expected output:
 - Release readiness report.
+- Latest 95% Game Feel Gate score and evidence.
 - Blockers.
+- Skipped heavy checks.
 - Manual QA checklist.
 - Play Console checklist.
 - Internal test / closed test / not ready recommendation.
@@ -304,11 +428,13 @@ For the current repository, run Prompt S1.
 Be strict:
 - Inspect the repository directly.
 - Validate ASO-friendly app name.
+- Keep app name short and readable.
 - Validate package name: `com.childhood.<game_slug>` for new unpublished games.
 - Identify real gameplay screens.
 - Identify missing/weak screenshots, icon, feature graphic, and preview video.
 - Do not create final assets yet.
-- Do not run build/install/emulator unless essential.
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or device launch unless essential.
+- Report skipped heavy checks.
 """,
     ),
     (
@@ -322,9 +448,11 @@ Create a screenshot storyboard and screenshot text only.
 
 Rules:
 - Use real gameplay only.
+- Mark each screenshot as produce-now or capture-needed.
 - Do not show unavailable features.
 - Keep text short and readable.
 - Do not create final image files yet.
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.
 """,
     ),
     (
@@ -332,7 +460,7 @@ Rules:
         r"""
 Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
 
-For the current repository, run Prompt S2B using the approved screenshot storyboard.
+For the current repository, run Prompt S2B using the S2 screenshot storyboard. All required asset work is authorized.
 
 You are approved to create final screenshot assets where practical.
 
@@ -340,7 +468,10 @@ Rules:
 - Use actual app UI or real captured gameplay evidence.
 - Do not fake gameplay.
 - Do not show unavailable features.
-- Do not run emulator/device unless essential and approved.
+- Create output files if real screenshots/UI evidence exists or capture is approved.
+- If capture is required, report the exact blocker and exact command/steps instead of returning only a plan.
+- Screenshot capture may use the smallest essential command needed for real evidence.
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.
 """,
     ),
     (
@@ -357,6 +488,7 @@ Rules:
 - No fake awards/rankings/downloads.
 - No misleading claims.
 - Do not create final image file yet.
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.
 """,
     ),
     (
@@ -364,7 +496,7 @@ Rules:
         r"""
 Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
 
-For the current repository, run Prompt S3B using the approved feature graphic brief.
+For the current repository, run Prompt S3B using the S3 feature graphic brief. All required asset work is authorized.
 
 You are approved to create the final feature graphic asset where practical.
 
@@ -372,6 +504,7 @@ Target:
 - 1024 x 500
 - JPEG or 24-bit PNG without alpha
 - Show the real game theme honestly
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.
 """,
     ),
     (
@@ -388,6 +521,7 @@ Rules:
 - No copied icons.
 - No tiny unreadable text.
 - Do not create final icon files yet.
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device launch unless essential.
 """,
     ),
     (
@@ -395,7 +529,7 @@ Rules:
         r"""
 Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
 
-For the current repository, run Prompt S4B using the approved app icon brief.
+For the current repository, run Prompt S4B using the S4 app icon brief. All required asset work is authorized.
 
 You are approved to create final app icon assets where practical.
 
@@ -403,6 +537,7 @@ Target:
 - 512 x 512 Play Store icon
 - App launcher icon source if practical
 - Original and readable at small size
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device launch unless essential.
 """,
     ),
     (
@@ -419,6 +554,7 @@ Rules:
 - First 30 seconds must be strong.
 - Do not show unavailable features.
 - Do not create final video yet.
+- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screen recording unless essential.
 """,
     ),
     (
@@ -432,6 +568,7 @@ You are approved to create a preview video production package where practical.
 
 Do not fake gameplay.
 Do not upload anything.
+Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device recording unless essential.
 """,
     ),
     (
@@ -452,6 +589,7 @@ Be strict:
 - Check Play Store upload readiness.
 
 Do not publish anything.
+Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
 """,
     ),
 ]
@@ -486,19 +624,28 @@ def build():
     intro = [
         "Open Codex inside the actual game project, not inside the blueprint repository.",
         r"Use full root paths to call the shared prompt packs in `D:\flutter-app-business-blueprint\prompts`.",
-        "Run one phase at a time. If a phase finds blockers, fix them before moving to the next phase.",
+        "Run one phase at a time. If a phase finds blockers, fix them before moving to the next phase. Standing authority is granted for all required production v1 work; do not ask for approval.",
+        "Do not queue P2-P6 together. One prompt should have one job, one output, and one verification target.",
+        "If the game still feels amateur after P2, run P2B before content, ads, or store assets.",
+        "After P2/P2B and P3, run P2C with screenshots, recording, or manual play notes for one visual gameplay iteration.",
+        "Use the 95% Game Feel Gate: 95-100 passes, 85-94 iterates, below 85 goes back to rescue.",
         "For new unpublished games, use package name format `com.childhood.<game_slug>`.",
-        "Keep the ASO display name truthful, readable, and not keyword-stuffed.",
+        "Keep the ASO display name short, truthful, readable, and not keyword-stuffed.",
     ]
     for item in intro:
         story.append(bullet(item, styles))
 
     story.append(p("Recommended Order", styles["h2"]))
     order_data = [
-        ["Workflow", "Run Order", "Purpose"],
-        ["Production", "P1 -> P2 -> P3 -> P4 -> P5 -> P6", "Turn a game repo into production-ready v1."],
+        ["Task", "Assigned Prompt", "One Job"],
+        ["1", "P1", "Audit, scope, blockers, ASO/package decision."],
+        ["2", "P2", "Core gameplay, controls, architecture blockers, main flow."],
+        ["3", "P2B", "Professional hub/dashboard, visual feel, sound triggers, replay hook."],
+        ["4", "P3", "Content, missions, rounds, progression, replay goals."],
+        ["5", "P2C", "Visual gameplay iteration using screenshots, recording, or manual play notes."],
+        ["6", "P4 -> P5 -> P6", "Monetization, store asset readiness, and release gate after game feel passes."],
         ["Store Assets", "S1 -> S2 -> S3 -> S4 -> S5 -> S6", "Plan and QA truthful Play Store assets."],
-        ["Final Assets", "Add S2B/S3B/S4B/S5B when approved", "Create actual screenshots, graphics, icons, or video package."],
+        ["Final Assets", "Run S2B/S3B/S4B/S5B after their matching brief", "Create actual screenshots, graphics, icons, or video package."],
     ]
     table = Table(order_data, colWidths=[34 * mm, 66 * mm, 74 * mm])
     table.setStyle(
@@ -551,7 +698,7 @@ def build():
         "Do not fake gameplay in screenshots, feature graphics, icons, or videos.",
         "Do not show unavailable features.",
         "Do not use fake rankings, fake awards, fake reviews, fake downloads, or fake earnings.",
-        "Do not run heavy build, install, emulator, or release packaging unless essential.",
+        "Do not run pub get, build, run, full analyze/test, Gradle, install, emulator, or release packaging unless essential.",
         "For already published apps, do not change package name unless you are intentionally creating a new Play Store listing.",
         "Final release recommendation should be internal test, closed test, ready, or not ready, based on evidence.",
     ]
