@@ -1,647 +1,468 @@
-﻿<!doctype html>
-<html lang="en">
+<!doctype html>
+<html lang="bn">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Game Production Prompt Copy</title>
+  <meta name="color-scheme" content="light">
+  <title>Universal Flutter Game Prompt Builder</title>
   <style>
-    :root {
-      --bg: #f6f8fb;
-      --panel: #ffffff;
-      --ink: #182233;
-      --muted: #5d6b7d;
-      --line: #d8e0ea;
-      --brand: #2457a6;
-      --brand-dark: #183f7a;
-      --code: #f2f5f9;
-      --ok: #16723a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Segoe UI", Arial, sans-serif;
-      line-height: 1.45;
-    }
-
-    header {
-      padding: 32px 20px 20px;
-      text-align: center;
-      border-bottom: 1px solid var(--line);
-      background: #fff;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 30px;
-      letter-spacing: 0;
-    }
-
-    header p {
-      margin: 8px auto 0;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    main {
-      width: min(1120px, calc(100% - 28px));
-      margin: 22px auto 48px;
-    }
-
-    .note {
-      background: #fff8e6;
-      border: 1px solid #ead48f;
-      border-radius: 8px;
-      padding: 12px 14px;
-      color: #5c4917;
-      margin-bottom: 16px;
-      font-size: 14px;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 18px 0;
-    }
-
-    .tab {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      color: var(--ink);
-      border-radius: 8px;
-      padding: 9px 12px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .tab.active {
-      background: var(--brand);
-      color: #fff;
-      border-color: var(--brand);
-    }
-
-    .section {
-      display: none;
-    }
-
-    .section.active {
-      display: block;
-    }
-
-    .prompt-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      margin: 14px 0;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(30, 45, 70, 0.04);
-    }
-
-    .prompt-head {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .prompt-title {
-      font-weight: 700;
-      color: #1d3557;
-    }
-
-    .copy-btn {
-      border: 0;
-      background: var(--brand);
-      color: #fff;
-      border-radius: 8px;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-weight: 700;
-      min-width: 88px;
-    }
-
-    .copy-btn:hover {
-      background: var(--brand-dark);
-    }
-
-    .copy-btn.copied {
-      background: var(--ok);
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 220px;
-      resize: vertical;
-      border: 0;
-      display: block;
-      padding: 14px;
-      background: var(--code);
-      color: #1d2430;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 13px;
-      line-height: 1.45;
-      outline: none;
-    }
-
-    .short textarea {
-      min-height: 150px;
-    }
-
-    footer {
-      color: var(--muted);
-      text-align: center;
-      padding: 24px 12px 40px;
-      font-size: 13px;
+    :root { --ink:#182b40; --muted:#50647b; --line:#cfdae6; --brand:#175bc2; --paper:#fff; --bg:#f3f6fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--bg); font:16px/1.6 "Segoe UI",Arial,sans-serif; }
+    header { background:#122c48; color:white; padding:32px max(20px,calc((100vw - 1120px)/2)); }
+    header p { max-width:850px; color:#dae8f8; }
+    h1 { font-size:clamp(25px,4vw,36px); line-height:1.25; margin:8px 0; }
+    h2 { font-size:21px; margin:0 0 8px; }
+    h3 { font-size:17px; margin:20px 0 8px; }
+    p { margin:8px 0 16px; }
+    .eyebrow { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#a8d6ff; }
+    main { max-width:1160px; padding:22px 20px 40px; margin:auto; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:20px; }
+    .step { border-left:3px solid #92b9ef; padding:4px 14px; }
+    .step strong { display:block; }
+    .step span, .help, small { color:var(--muted); font-size:14px; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:24px; margin-bottom:18px; box-shadow:0 4px 20px #18324c06; }
+    .heading { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .field { display:grid; gap:6px; align-content:start; min-width:0; }
+    .wide { grid-column:1 / -1; }
+    label { font-weight:600; font-size:14px; }
+    input:not([type=checkbox]), textarea, select { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; background:white; color:var(--ink); font:inherit; }
+    textarea { resize:vertical; font:13px/1.6 Consolas,monospace; min-height:145px; }
+    #gameConcept { min-height:230px; }
+    #masterPrompt { min-height:480px; background:#f7f9fc; }
+    .ad-id { font-family:Consolas,monospace !important; font-size:13px !important; }
+    :focus-visible { outline:3px solid #5892e6; outline-offset:3px; }
+    button { cursor:pointer; background:var(--brand); color:white; border:1px solid var(--brand); border-radius:8px; padding:10px 16px; font:600 14px/1.4 "Segoe UI",Arial,sans-serif; }
+    button.secondary { color:var(--ink); background:white; border-color:var(--line); }
+    button:hover { filter:brightness(.94); }
+    button:disabled { opacity:.5; cursor:not-allowed; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:16px 0; }
+    .notice { padding:12px 14px; background:#edf4ff; border-left:3px solid #4e89db; border-radius:4px; margin:12px 0; font-size:14px; }
+    .status { color:#34516d; white-space:pre-line; overflow-wrap:anywhere; margin:10px 0; font-size:14px; }
+    .status.error { color:#a12424; }
+    .status.ok { color:#156139; }
+    .check { display:flex; align-items:flex-start; gap:10px; margin-top:14px; font-weight:400; }
+    .check input { width:18px; height:18px; margin-top:4px; flex-shrink:0; }
+    code { overflow-wrap:anywhere; font-size:13px; }
+    summary { cursor:pointer; font-weight:600; }
+    details { margin-top:16px; }
+    a { color:#1554aa; text-underline-offset:3px; }
+    ul { padding-left:22px; }
+    footer { color:var(--muted); font-size:13px; padding-top:4px; }
+    #packagePreview { color:#18593a; }
+    .metrics { color:var(--muted); font-size:13px; margin-bottom:8px; }
+    @media(max-width:680px) {
+      .grid, .steps { grid-template-columns:1fr; }
+      .wide { grid-column:auto; }
+      .card { padding:18px; }
+      main { padding:18px 12px; }
+      #masterPrompt { min-height:380px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Game Production Prompt Copy</h1>
-    <p>Double-click this HTML file to open it, then press a Copy button. Use these prompts from the actual game repository task.</p>
+    <div class="eyebrow">One concept. One game. A reusable workflow.</div>
+    <h1>Universal Flutter Game Prompt Builder</h1>
+    <p>৩০টি concept থেকে একবারে একটি game। একই master brief-এ research, gameplay, sound, polish, ads, support ও store assets। Instructions ইংরেজিতে; ব্যবহারবিধি বাংলায়।</p>
   </header>
-
   <main>
-    <div class="note">
-      Best workflow: run one phase at a time. If a phase finds blockers, fix them before moving to the next phase.
-      Do not queue P2-P6 together. One prompt should have one job, one output, and one verification target.
-      For new unpublished games, package name should follow <strong>com.childhood.&lt;game_slug&gt;</strong>.
-      Fast mode: skip pub get, run, build, full analyze/test, Gradle, install, emulator, and release packaging unless essential. Standing authority is already granted for all required production v1 work; do not ask for approval.
-      Pro mode: do not accept generic dashboards, forced level lists, dead menus, weak sound triggers, or boring prototype gameplay.
-      Feel loop: after P2/P2B and P3, use screenshots, recording, or manual play notes for one visual gameplay iteration before ads/store work.
-      95% gate: no real visual/play evidence means no 95% claim. Score 95-100 to pass; 85-94 means iterate; below 85 means rescue.
+    <div class="steps">
+      <div class="step"><strong>১ · Concept + IDs</strong><span>একটি game-এর details ও AdMob-এর পুরো block paste করো।</span></div>
+      <div class="step"><strong>২ · Master একবার</strong><span>Game-এর নিজস্ব project/task-এ পাঠাও। প্রথমে research ও plan হবে।</span></div>
+      <div class="step"><strong>৩ · ছোট Continue</strong><span>Plan দেখে Continue পাঠাও। প্রতি বার পরের একটি phase হবে।</span></div>
     </div>
-
-    <div class="note">
-      Assigned flow: P1 audit/scope -> P2 core gameplay -> P2B pro hub/game feel -> P3 content/replay -> P2C visual playtest iteration -> P4/P5/P6 monetization, assets, release gate.
-      If P2C says the game still feels weak, go back to P2B or P3 before ads.
-    </div>
-
-    <div class="tabs">
-      <button class="tab active" data-target="production">Production P1-P6</button>
-      <button class="tab" data-target="store">Store S1-S6</button>
-      <button class="tab" data-target="assets">Asset SB Prompts</button>
-    </div>
-
-    <section id="production" class="section active">
-      <div class="prompt-card">
-        <div class="prompt-head"><div class="prompt-title">P1 - Strict Audit / Scope Lock</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
-
-For the current repository, run Prompt P1.
-
-Be strict. Inspect whether the game is actually production-ready or still prototype-level.
-
-Check:
-- Architecture mismatch.
-- Incomplete gameplay.
-- Placeholder/fake functionality.
-- Missing screens/states.
-- Missing levels/content/modes.
-- Confusing controls or weak touch handling.
-- Weak/missing animation and feedback.
-- Weak game hub/dashboard.
-- Generic level-list UX where the genre needs a better flow.
-- Boring gameplay loop with no replay hook.
-- Sound/haptics toggles exist but gameplay does not trigger feedback.
-- Confusing onboarding or unclear first action.
-- Weak UI polish.
-- Screenshot-ready gameplay/screens missing.
-- Missing save/progress.
-- Missing AdMob/analytics.
-- Missing ASO-friendly app name.
-- Missing package name convention: `com.childhood.&lt;game_slug&gt;`.
-- Release blockers.
-
-Do not edit files yet.
-Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
-
-Expected output:
-- Production v1 checklist.
-- Blockers.
-- Approved implementation order.
-- Skipped heavy checks.</textarea>
+    <section class="card" aria-labelledby="conceptHeading">
+      <div class="heading">
+        <h2 id="conceptHeading">১. কোন game বানাবে?</h2>
+        <button id="newGame" class="secondary" type="button">New game / Clear fields</button>
       </div>
-
-      <div class="prompt-card">
-        <div class="prompt-head"><div class="prompt-title">P2 - UI + Animation + Game Feel</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
-
-All P1 production v1 scope items are authorized; do not request approval.
-
-For the current repository, run Prompt P2.
-
-You are approved to modify code/docs for UI, animation, controls, and gameplay polish only.
-
-Fix:
-- Architecture mismatch if it blocks game correctness.
-- Broken/incomplete core gameplay.
-- Placeholder/fake behavior.
-- Confusing first-time flow.
-- Childish, template-like, or placeholder-looking UI.
-- Weak dashboard/home that does not feel like a real game hub.
-- Generic level section where quick play, missions, challenges, rounds, waves, endless, or campaign flow would be better.
-- Gameplay has no replay hook, score chase, combo, streak, mission, unlock, achievement, or progression motivation.
-- Poor controls, small tap targets, bad drag/touch handling, or unclear hit areas.
-- Missing/weak visual feedback for valid moves, invalid moves, score, win, loss, rewards, retry, and errors.
-- Missing lightweight feedback sounds/haptics for tap, valid action, invalid action, score/reward, win, and loss.
-- Missing/slow/meaningless animations.
-- Missing menus, pause/restart, result screens, settings.
-- Weak mobile UI, HUD readability, spacing, contrast, or small-screen layout.
-- Missing simple onboarding, help, or hints where the game is not self-explanatory.
-
-Do not add AdMob yet.
-Do not touch unrelated files.
-Do not ship a childish, template-like, or placeholder-looking UI.
-Do not force every game into a generic levels screen.
-Do not add slow decorative animation that blocks repeated play.
-Use lightweight built-in/system feedback sounds and haptics for core moments without adding custom audio assets or new audio packages.
-Add or verify sound and haptic toggles in settings.
-Do not add custom sound assets, music, sound packs, or audio dependencies unless essential.
-If built-in feedback sound cannot work reliably, report the exact blocker instead of claiming sound is done.
-Do not let text, buttons, ads, HUD, or dialogs overlap active gameplay.
-Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
-
-Expected output:
-- UX/game-feel checklist.
-- Professional hub/dashboard changes.
-- Animation and feedback changes.
-- Feedback sound/haptic coverage.
-- Engagement/replay hook changes.
-- Skipped heavy checks.
-- Manual QA steps for first-time user flow, controls, and small screens.</textarea>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-head"><div class="prompt-title">P2B - Pro Game Vibe Rescue</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
-
-For the current repository, run Prompt P2B.
-
-The current result still feels amateur. You are approved to fix professional game vibe, dashboard UX, gameplay feel, feedback, and screenshot-ready screens only.
-
-Fix:
-- Top reasons the game looks childish, generic, or prototype-like.
-- Weak home/dashboard; make it a useful game hub.
-- Generic level-list UX; replace it when the genre needs quick play, missions, challenges, rounds, waves, endless, campaign, or continue flow.
-- Boring gameplay; add a small replay hook such as score chase, combo, streak, missions, stars, unlocks, achievements, or escalating challenge.
-- Weak result screens; make retry/next/continue natural.
-- Sound/haptic feedback not triggered during real gameplay.
-- Missing screenshot-ready moments/screens.
-
-Do not add AdMob.
-Do not add login, online multiplayer, cloud sync, fake online opponents, fake rewards, or heavy economy systems.
-Do not add custom audio assets or audio dependencies unless sound cannot work reliably with built-in feedback; then use the smallest practical local audio approach and report it.
-Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
-
-Expected output:
-- Top 10 amateur-feel causes found.
-- Professional hub/dashboard changes.
-- Gameplay engagement changes.
-- Sound/haptic trigger coverage.
-- Screenshot-ready screens created or improved.
-- Skipped heavy checks.
-- Remaining risks.</textarea>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-head"><div class="prompt-title">P3 - Levels / Content / Modes</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
-
-For the current repository, run Prompt P3 using the P1 production content target. All required work is authorized.
-
-You are authorized to add enough production v1 content.
-
-Add or complete:
-- Genre-appropriate content: levels, missions, waves, boards, puzzles, modes, AI modes, rounds, challenges, achievements, or progression.
-- Save/progress where needed.
-- Replay goals such as score chase, stars, streaks, missions, unlocks, or achievements where appropriate.
-- Validation/tests for game rules where practical.
-
-Do not add AdMob yet.
-Do not touch unrelated files.
-Do not force a visible level section if quick play, missions, rounds, waves, endless mode, or challenge flow is better.
-Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
-
-Expected output:
-- Content added.
-- Skipped heavy checks.
-- Remaining risks.</textarea>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-head"><div class="prompt-title">P2C - Visual Gameplay Iteration</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
-
-For the current repository, run Prompt P2C.
-
-Use available screenshots, screen recording, manual play notes, QA notes, or previous findings from this task.
-
-Goal:
-- Judge the actual first 10 seconds of play.
-- Review home/dashboard, first play entry, gameplay screen, pause/settings, result screen, and retry/next flow.
-- Check whether the game looks professional, fun, readable, and screenshot-ready.
-- Check whether gameplay has a reason to continue: score chase, combo, streak, mission, stars, unlock, achievement, progression, or escalating challenge.
-- Check whether sounds/haptics trigger from real gameplay events and respect settings.
-- Score the game using the 95% Game Feel Gate: first 10 seconds 15, visual UI/hub/HUD/results 20, controls/touch/small-screen 15, gameplay/replay/progression 20, sound/haptics 10, content/modes 10, screenshot readiness 10.
-- Fix the highest-impact 3-5 visual/gameplay feel issues only.
-
-Rules:
-- Do not claim real game feel is verified unless screenshots, recording, live app output, or manual play evidence was inspected.
-- Do not claim 95%+ unless real visual/play evidence was inspected.
-- If no visual evidence is available, run the smallest practical visual check when possible; otherwise mark visual gameplay feel as not verified and list exact manual checks.
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or device capture unless essential.
-- When visual capture is essential, run only the smallest practical command needed.
-- Do not add AdMob, login, cloud sync, fake online features, or unrelated systems.
-
-Expected output:
-- Evidence used.
-- Visual/gameplay feel verdict.
-- 95% Game Feel Gate score and pass/iterate/rescue decision.
-- Top feel problems found.
-- Fixes implemented this iteration.
-- Sound/haptic verification status.
-- Screenshot-readiness status.
-- Skipped heavy checks.
-- Next manual play checklist.
-- Remaining risks.</textarea>
-      </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">P4 - AdMob + Analytics</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
-
-For the current repository, run Prompt P4.
-
-You are approved to implement production-safe AdMob and analytics.
-
-Rules:
-- Ads must not interrupt active gameplay.
-- Use test/prod ad separation.
-- Add frequency caps before interstitials.
-- Ad failure must not block gameplay.
-- Add analytics for gameplay, difficulty, retention, and ad impact.
-- Keep package name as `com.childhood.&lt;game_slug&gt;` for new unpublished apps.
-- Do not run `flutter pub get`, `dart pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.</textarea>
-      </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">P5 - Store / ASO / Assets Plan</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
-
-For the current repository, run Prompt P5.
-
-Confirm:
-- ASO-friendly app name.
-- Package name: `com.childhood.&lt;game_slug&gt;`.
-- Store listing copy.
-- Screenshot plan.
-- Screenshot asset production or exact screenshot capture blocker if assets are approved.
-- Feature graphic brief.
-- App icon brief.
-- Preview video script.
-
-Do not fake gameplay.
-Do not show unavailable features.
-Do not silently skip screenshots. Create assets, create source templates, or list exact real capture blockers.
-Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.</textarea>
-      </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">P6 - Final Release Check</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\game-production-ready-prompt-pack.md`.
-
-For the current repository, run Prompt P6.
-
-Be strict. Do not claim production-ready unless checks support it.
-Do not recommend store asset production, AdMob rollout, or release if the latest real-evidence game feel score is below 95 unless I explicitly accept the risk.
-Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.
-
-Expected output:
-- Release readiness report.
-- Latest 95% Game Feel Gate score and evidence.
-- Blockers.
-- Skipped heavy checks.
-- Manual QA checklist.
-- Play Console checklist.
-- Internal test / closed test / not ready recommendation.</textarea>
+      <p class="help">নতুন game-এর জন্য Clear fields দিয়ে শুরু করো; আগের AdMob IDs চলে যাবে। এই page কোনো data save বা server-এ পাঠায় না। Refresh করলে লেখা হারাবে।</p>
+      <div class="grid">
+        <div class="field">
+          <label for="gameName">Game title</label>
+          <input id="gameName" type="text" placeholder="Example: Pocket Percussion" autocomplete="off" maxlength="100">
+        </div>
+        <div class="field">
+          <label for="gameSlug">Package suffix</label>
+          <input id="gameSlug" type="text" placeholder="pocketpercussion" autocomplete="off" spellcheck="false">
+          <small>Package: <code id="packagePreview">com.childhood.…</code></small>
+        </div>
+        <div class="field wide">
+          <label for="gameConcept">একটি সম্পূর্ণ game concept</label>
+          <textarea id="gameConcept" placeholder="Working title: ...
+Genre: ...
+Gameplay concept: ...
+Core gameplay loop: ...
+Why players may replay it: ...
+Main monetization opportunity: ...
+Development difficulty: ...
+Main competitor/category: [name](URL)
+What makes it different: ..."></textarea>
+          <small>Working title: থাকলে title নিজে বসবে। Competitor-এর নাম/link রাখো; Codex অনলাইনে screenshot ও gameplay reference খুঁজবে। তোমার screenshot সাধারণত লাগবে না।</small>
+        </div>
       </div>
     </section>
+    <section class="card" aria-labelledby="adsHeading">
+      <h2 id="adsHeading">২. AdMob block paste করো <small>· optional</small></h2>
+      <p class="help">AdMob-এর App ID ও ছয় ধরনের ad unit-এর লেখা, links ও image markup-সহ paste করা যাবে। Import করার পর নিচের mapping মিলিয়ে নাও। IDs খালি থাকলে test ads দিয়ে কাজ হবে; production-এ সেই format বন্ধ থাকবে।</p>
+      <div class="field">
+        <label for="admobBlock">AdMob থেকে copy করা পুরো লেখা</label>
+        <textarea id="admobBlock" placeholder="App ID
+ca-app-pub-...~...
 
-    <section id="store" class="section">
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S1 - Store Creative Audit</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
+App open
+ca-app-pub-.../...
 
-For the current repository, run Prompt S1.
+Banner
+ca-app-pub-.../...
 
-Be strict:
-- Inspect the repository directly.
-- Validate ASO-friendly app name.
-- Keep app name short and readable.
-- Validate package name: `com.childhood.&lt;game_slug&gt;` for new unpublished games.
-- Identify real gameplay screens.
-- Identify missing/weak screenshots, icon, feature graphic, and preview video.
-- Do not create final assets yet.
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or device launch unless essential.
-- Report skipped heavy checks.</textarea>
+Rewarded interstitial
+ca-app-pub-.../..."></textarea>
       </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S2 - Screenshot Storyboard</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S2 using the approved S1 creative audit.
-
-Create a screenshot storyboard and screenshot text only.
-
-Rules:
-- Use real gameplay only.
-- Mark each screenshot as produce-now or capture-needed.
-- Do not show unavailable features.
-- Keep text short and readable.
-- Do not create final image files yet.
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.</textarea>
+      <div class="actions">
+        <button id="importAds" type="button">Import IDs</button>
+        <button id="clearAds" class="secondary" type="button">Clear IDs</button>
       </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S3 - Feature Graphic Brief</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S3.
-
-Create the feature graphic concept/brief only.
-
-Rules:
-- Must match the real game.
-- No fake awards/rankings/downloads.
-- No misleading claims.
-- Do not create final image file yet.
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.</textarea>
+      <p id="importStatus" class="status" role="status" aria-live="polite"></p>
+      <div class="grid">
+        <div class="field wide"><label for="appId">Android App ID ( ~ )</label><input class="ad-id" id="appId" placeholder="ca-app-pub-…~…" spellcheck="false" autocomplete="off"></div>
+        <div class="field"><label for="appOpenId">App open</label><input class="ad-id" id="appOpenId" placeholder="ca-app-pub-…/…" spellcheck="false" autocomplete="off"></div>
+        <div class="field"><label for="bannerId">Banner</label><input class="ad-id" id="bannerId" placeholder="ca-app-pub-…/…" spellcheck="false" autocomplete="off"></div>
+        <div class="field"><label for="interstitialId">Interstitial</label><input class="ad-id" id="interstitialId" placeholder="ca-app-pub-…/…" spellcheck="false" autocomplete="off"></div>
+        <div class="field"><label for="nativeId">Native advanced</label><input class="ad-id" id="nativeId" placeholder="ca-app-pub-…/…" spellcheck="false" autocomplete="off"></div>
+        <div class="field"><label for="rewardedId">Rewarded</label><input class="ad-id" id="rewardedId" placeholder="ca-app-pub-…/…" spellcheck="false" autocomplete="off"></div>
+        <div class="field"><label for="rewardedInterstitialId">Rewarded interstitial</label><input class="ad-id" id="rewardedInterstitialId" placeholder="ca-app-pub-…/…" spellcheck="false" autocomplete="off"></div>
       </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S4 - App Icon Brief</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S4.
-
-Create the app icon concept/brief only.
-
-Rules:
-- Simple, readable, original.
-- No copied icons.
-- No tiny unreadable text.
-- Do not create final icon files yet.
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device launch unless essential.</textarea>
-      </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S5 - Preview Video Script</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S5.
-
-Create preview video script and shot list only.
-
-Rules:
-- Show real gameplay.
-- First 30 seconds must be strong.
-- Do not show unavailable features.
-- Do not create final video yet.
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screen recording unless essential.</textarea>
-      </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S6 - Final Asset QA</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S6.
-
-Be strict:
-- Check screenshot truthfulness.
-- Check feature graphic.
-- Check app icon.
-- Check preview video package.
-- Check ASO name.
-- Check package name: `com.childhood.&lt;game_slug&gt;`.
-- Check misleading claims.
-- Check Play Store upload readiness.
-
-Do not publish anything.
-Do not run `flutter pub get`, `flutter run`, `flutter build`, full `flutter analyze`, full `flutter test`, Gradle, install, emulator, or release packaging unless essential.</textarea>
-      </div>
+      <label class="check" for="adReview"><input id="adReview" type="checkbox"><span>উপরের title/package-এর game-এর জন্যই এই IDs; App ID ও ad format mapping মিলিয়ে নিয়েছি।</span></label>
+      <small>এটি শুধু copy করার আগে ভুল game-এর IDs ঠেকানোর check। সব format-এর ID দিলেও gameplay-এর জন্য উপযুক্ত format-ই চালু হবে।</small>
     </section>
-
-    <section id="assets" class="section">
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S2B - Create Screenshot Assets</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S2B using the S2 screenshot storyboard. All required asset work is authorized.
-
-You are approved to create final screenshot assets where practical.
-
-Rules:
-- Use actual app UI or real captured gameplay evidence.
-- Do not fake gameplay.
-- Do not show unavailable features.
-- Create output files if real screenshots/UI evidence exists or capture is approved.
-- If capture is required, report the exact blocker and exact command/steps instead of returning only a plan.
-- Screenshot capture may use the smallest essential command needed for real evidence.
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.</textarea>
-      </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S3B - Create Feature Graphic</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S3B using the S3 feature graphic brief. All required asset work is authorized.
-
-You are approved to create the final feature graphic asset where practical.
-
-Target:
-- 1024 x 500
-- JPEG or 24-bit PNG without alpha
-- Show the real game theme honestly
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device screenshot capture unless essential.</textarea>
-      </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S4B - Create App Icon</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S4B using the S4 app icon brief. All required asset work is authorized.
-
-You are approved to create final app icon assets where practical.
-
-Target:
-- 512 x 512 Play Store icon
-- App launcher icon source if practical
-- Original and readable at small size
-- Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device launch unless essential.</textarea>
-      </div>
-
-      <div class="prompt-card short">
-        <div class="prompt-head"><div class="prompt-title">S5B - Video Production Package</div><button class="copy-btn">Copy</button></div>
-        <textarea readonly>Use the prompt pack at `D:\flutter-app-business-blueprint\prompts\play-store-creative-assets-prompt-pack.md`.
-
-For the current repository, run Prompt S5B using the approved preview video script.
-
-You are approved to create a preview video production package where practical.
-
-Do not fake gameplay.
-Do not upload anything.
-Do not run `flutter pub get`, `flutter run`, `flutter build`, install, emulator, or device recording unless essential.</textarea>
-      </div>
+    <section class="card" aria-labelledby="rulesHeading">
+      <h2 id="rulesHeading">প্রতি game-এ যা থাকবে</h2>
+      <div class="notice"><strong>Manual verification:</strong> Codex game run, build, pub get, analyze, test, formatter, Gradle, install বা emulator চালাবে না। Code/config ও assets তৈরি করবে; তুমি checks চালিয়ে ফল দেবে।</div>
+      <p class="help">Polished 2.5D-style screens ও animation, licensed online sounds, আকর্ষণীয় local profile, optional rewarded ads, Android config review, এক-field support form, ৮টি promo screenshot, icon, feature graphic ও ASO copy।</p>
+      <details>
+        <summary>Ads, support ও screenshot-এর নিয়ম</summary>
+        <ul class="help">
+          <li>Game-এ life থাকলে একই run-এ প্রথম extra life = ১ ad, দ্বিতীয় = ২, এরপর প্রতি extra life = ৩। Life না থাকলে game-এর মানানসই reward (যেমন hint) রাখবে; কৃত্রিম life system যোগ করবে না।</li>
+          <li>Support: শুধু message, Cancel ও Send। Endpoint <code>https://formspree.io/f/xqpkqbjl</code>; dashboard recipient <code>shuvo4727@gmail.com</code>। Runtime app name থেকে invisible <code>subject</code> হবে।</li>
+          <li>Competitor research Codex নিজে করবে। Store promo-তে তোমার বাস্তব game দেখাবে। Capture না থাকলে ৮টি editable template ও capture instructions হবে; final export capture পাওয়ার পরে।</li>
+          <li>কোনো “100% ASO”, guaranteed profit বা evidence ছাড়া “competitor-এর চেয়ে ভালো” দাবি থাকবে না। লক্ষ্য হবে নির্দিষ্ট, যাচাইযোগ্য উন্নতি।</li>
+        </ul>
+      </details>
     </section>
+    <section class="card" aria-labelledby="promptHeading">
+      <h2 id="promptHeading">৩. Prompt copy করো</h2>
+      <div class="field">
+        <label for="promptMode">কোন ধাপ?</label>
+        <select id="promptMode">
+          <option value="master">Master — প্রথমবার, সম্পূর্ণ brief</option>
+          <option value="continue">Continue — পরের phase, সবচেয়ে ছোট</option>
+          <option value="polish">Focus — screen polish + sound + profile</option>
+          <option value="ads">Focus — game অনুযায়ী ads + reward</option>
+          <option value="support">Focus — support + Android config</option>
+          <option value="store">Focus — 8 screenshots + icon + ASO</option>
+          <option value="review">Review — আমার manual test results ঠিক করো</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button id="generatePrompt" type="button">Generate prompt</button>
+        <button id="copyPrompt" type="button" disabled>Copy prompt</button>
+        <button id="copyContinuationPrompt" class="secondary" type="button">Show short Continue</button>
+      </div>
+      <p id="promptStatus" class="status" role="status" aria-live="polite"></p>
+      <p id="promptMetrics" class="metrics">Master একবার পাঠাও; একই task-এ Continue ব্যবহার করো।</p>
+      <label for="masterPrompt">Generated prompt <span lang="en">· English</span></label>
+      <textarea id="masterPrompt" lang="en" readonly placeholder="Game title ও concept বসিয়ে Generate prompt চাপো।"></textarea>
+      <p class="help">Master prompt আগে ব্যবহার করো। Continue/Focus prompt saved <code>docs/GAME_PLAN.md</code> ব্যবহার করবে। নতুন task হলে একই game repository খুলো। Manual ফল/notes Review prompt-এর নিচে paste করো।</p>
+      <details>
+        <summary>কখন কাজ শেষ বলা যাবে?</summary>
+        <p class="help">Implementation, assets, pending capture এবং manually verified ফল আলাদা থাকবে। Gameplay, audio timing, ad rewards, actual support delivery ও release build তুমি পরীক্ষা না করা পর্যন্ত verified বলা যাবে না। Missing console configuration বা capture থাকলে সেটি pending থাকবে।</p>
+      </details>
+    </section>
+    <footer>
+      <details>
+        <summary>References ও আগের prompt packs</summary>
+        <p>এই generator-এর brief স্বয়ংসম্পূর্ণ। আগের packs আলাদা reference; এখানে তাদের contradictory run/asset rules ব্যবহার করা হয় না।</p>
+        <ul>
+          <li><a href="../../prompts/game-production-ready-prompt-pack.md">Previous production pack</a> · <a href="../../prompts/play-store-creative-assets-prompt-pack.md">Previous store asset pack</a></li>
+          <li><a href="https://developers.openai.com/blog/run-long-horizon-tasks-with-codex">OpenAI: saved plans and milestone-based work</a></li>
+          <li><a href="https://developers.google.com/admob/flutter/quick-start">Google Mobile Ads for Flutter</a> · <a href="https://support.google.com/admob/answer/7313578?hl=en">Rewarded ad policy</a></li>
+          <li><a href="https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax">Formspree JSON submissions</a> · <a href="https://help.formspree.io/articles/building-your-form/special-fields">Formspree subject field</a></li>
+          <li><a href="https://support.google.com/googleplay/android-developer/answer/9866151?hl=en">Play preview assets</a> · <a href="https://developer.android.com/distribute/google-play/resources/icon-design-specifications">Icon specifications</a> · <a href="https://support.google.com/googleplay/android-developer/answer/9859152?hl=en">Store listing limits</a></li>
+        </ul>
+        <p>References checked: 2026-10-01. Game বানানোর সময় current official requirements আবার যাচাই করতে বলা আছে।</p>
+      </details>
+    </footer>
   </main>
-
-  <footer>
-    Local helper file for the Flutter App Business Blueprint prompt system.
-  </footer>
-
   <script>
-    document.querySelectorAll(".tab").forEach((button) => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
-        document.querySelectorAll(".section").forEach((item) => item.classList.remove("active"));
-        button.classList.add("active");
-        document.getElementById(button.dataset.target).classList.add("active");
-      });
-    });
+    "use strict";
+    const $ = (id) => document.getElementById(id);
+    const adFields = {
+      appId: "Android App ID", appOpenId: "App open", bannerId: "Banner",
+      interstitialId: "Interstitial", nativeId: "Native advanced",
+      rewardedId: "Rewarded", rewardedInterstitialId: "Rewarded interstitial"
+    };
+    const forbiddenSlugs = new Set(("abstract assert boolean break byte case catch char class const continue default do double else enum extends final finally float for goto if implements import instanceof int interface long native new package private protected public return short static strictfp super switch synchronized this throw throws transient try void volatile while true false null").split(" "));
+    let slugEdited = false;
+    let importedBlock = "";
 
-    async function copyText(textarea, button) {
-      const text = textarea.value.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (error) {
-        textarea.focus();
-        textarea.select();
-        document.execCommand("copy");
+    function status(id, message, kind = "") {
+      $(id).textContent = message;
+      $(id).className = "status " + kind;
+    }
+    function slugFrom(title) {
+      return title.toLowerCase().replace(/[^a-z0-9]/g, "").replace(/^[0-9]+/, "");
+    }
+    function updatePackage() {
+      $("packagePreview").textContent = "com.childhood." + ($("gameSlug").value.trim() || "…");
+    }
+    function invalidate() {
+      $("masterPrompt").value = "";
+      $("copyPrompt").disabled = true;
+      $("promptMetrics").textContent = "তথ্য বদলেছে — আবার Generate prompt চাপো।";
+      status("promptStatus", "");
+    }
+    function clearAds() {
+      Object.keys(adFields).forEach((id) => { $(id).value = ""; });
+      $("admobBlock").value = "";
+      $("adReview").checked = false;
+      importedBlock = "";
+      status("importStatus", "");
+      invalidate();
+    }
+    function parseAdBlock(source) {
+      const found = {};
+      const errors = [];
+      let pending = null;
+      let count = 0;
+      const labels = {
+        "app id": "appId", "application id": "appId", "android app id": "appId",
+        "app open": "appOpenId", banner: "bannerId", interstitial: "interstitialId",
+        native: "nativeId", "native advanced": "nativeId", rewarded: "rewardedId",
+        "rewarded interstitial": "rewardedInterstitialId"
+      };
+      const normalized = source.replace(/\\([~/*_])/g, "$1").replace(/!\[[^\]]*\]\([^)]*\)|\[image\]\([^)]*\)/gi, "");
+      for (const raw of normalized.split(/\r?\n/)) {
+        const line = raw.trim().replace(/^[\s>*#\-\d.)]+/, "").replace(/[*_`]/g, "");
+        if (!line || /^\[[^\]]*\]\(https?:\/\/[^)]*\)$/.test(line) || /^https?:\/\//.test(line)) continue;
+        const tokenPattern = /ca-app-pub-[^\s<>"'\])]+/g;
+        const ids = (line.match(tokenPattern) || []).map((id) => id.replace(/[.,;:]+$/, ""));
+        const markers = line.match(/ca-app-pub-/g) || [];
+        if (markers.length !== ids.length) errors.push("অসম্পূর্ণ AdMob ID পাওয়া গেছে।");
+        const label = line.replace(tokenPattern, "").trim().replace(/:$/, "").trim()
+          .toLowerCase().replace(/\s+(?:ad\s+unit\s+)?ids?$/, "").replace(/\s+/g, " ");
+        // Exact labels keep Rewarded distinct from Rewarded interstitial.
+        const rawLabel = line.toLowerCase().replace(/:$/, "").trim();
+        const direct = Object.hasOwn(labels, label) ? labels[label] : Object.hasOwn(labels, rawLabel) ? labels[rawLabel] : null;
+        if (direct) pending = direct;
+        for (const id of ids) {
+          count++;
+          if (!/^ca-app-pub-\d{16}[~/]\d{10}$/.test(id)) {
+            errors.push("ID format ভুল: " + id); continue;
+          }
+          if (id.includes("~") && pending && pending !== "appId") {
+            errors.push("App ID-কে " + adFields[pending] + " unit হিসেবে label দেওয়া হয়েছে।"); continue;
+          }
+          const key = id.includes("~") ? "appId" : pending;
+          if (!key || (key === "appId" && id.includes("/"))) {
+            errors.push("এই unit-এর format label বোঝা যায়নি: " + id); continue;
+          }
+          if (found[key] && found[key] !== id) errors.push(adFields[key] + "-এর একাধিক ID আছে; একটি game-এর block দাও।");
+          else found[key] = id;
+          pending = null;
+        }
+        if (!ids.length && !direct) pending = null;
       }
-      button.textContent = "Copied";
-      button.classList.add("copied");
-      window.setTimeout(() => {
-        button.textContent = "Copy";
-        button.classList.remove("copied");
-      }, 1400);
+      if (!count) errors.push("কোনো AdMob ID পাওয়া যায়নি।");
+      return { found, errors: [...new Set(errors)] };
+    }
+    function validateAds(ads) {
+      const errors = [];
+      const used = new Set();
+      const publishers = new Set();
+      for (const [key, value] of Object.entries(ads)) {
+        if (!value) continue;
+        const pattern = key === "appId" ? /^ca-app-pub-\d{16}~\d{10}$/ : /^ca-app-pub-\d{16}\/\d{10}$/;
+        if (!pattern.test(value)) errors.push(adFields[key] + ": সঠিক " + (key === "appId" ? "~ App ID" : "/ unit ID") + " দাও।");
+        else {
+          publishers.add(value.split(/[~/]/)[0]);
+          if (used.has(value)) errors.push("একই ID একাধিক ad format-এ ব্যবহার করা হয়েছে।");
+          used.add(value);
+        }
+      }
+      if (publishers.size > 1) errors.push("IDs-এ ভিন্ন publisher আছে; একই game/account-এর IDs মিলিয়ে দাও।");
+      return errors;
+    }
+    function currentConfig() {
+      const name = $("gameName").value.trim();
+      const slug = $("gameSlug").value.trim();
+      const concept = $("gameConcept").value.trim();
+      const ads = Object.fromEntries(Object.keys(adFields).map((id) => [id, $(id).value.trim()]));
+      const errors = [];
+      if (!name) errors.push("Game title দাও।");
+      if (!/^[a-z][a-z0-9]*$/.test(slug) || forbiddenSlugs.has(slug)) errors.push("Package suffix: ছোট English letter দিয়ে শুরু; শুধু a-z/0-9, reserved word নয়।");
+      if (!concept) errors.push("সম্পূর্ণ game concept paste করো।");
+      errors.push(...validateAds(ads));
+      if ($("admobBlock").value.trim() && $("admobBlock").value !== importedBlock) errors.push("AdMob block বদলেছে; Import IDs চাপো অথবা block মুছে manual IDs ব্যবহার করো।");
+      if (Object.values(ads).some(Boolean) && !$("adReview").checked) errors.push("IDs এই game-এর কিনা মিলিয়ে নিচের checkbox tick করো।");
+      return { name, slug, concept, ads, packageName: "com.childhood." + slug, errors };
     }
 
-    document.querySelectorAll(".prompt-card").forEach((card) => {
-      const button = card.querySelector(".copy-btn");
-      const textarea = card.querySelector("textarea");
-      button.addEventListener("click", () => copyText(textarea, button));
-      textarea.addEventListener("dblclick", () => copyText(textarea, button));
+    function masterPrompt(c) {
+      const ads = Object.entries(c.ads).filter(([, value]) => value).map(([id, value]) => adFields[id] + "=" + value).join("\n") || "None supplied.";
+      return `Build one original, polished Flutter Android game in this game repository. Act as game designer, Flutter engineer and product reviewer. Owner-facing explanations: concise Bangla; repository artifacts: English.
+GAME: ${c.name}
+NEW UNPUBLISHED APP PACKAGE: ${c.packageName}
+CONCEPT:
+${c.concept}
+
+WORK CONTRACT
+Inspect repository/instructions/dependencies first; preserve unrelated work and an already-published package ID. Use Flutter; add Flame only when helpful. Keep rules/state, UI, saves, audio, ads and platform services separate. Core play is offline; ads/support may need internet. No accounts, custom backend or scope bloat.
+Do NOT execute Flutter/Dart commands (including pub get, run, build, analyze, test, format), Gradle, installs, emulators, device launches/captures or release packaging. I will run them manually. Edit source/config, download licensed assets and generate artwork as needed. Perform source/file checks; write meaningful tests and exact manual commands/checklists without executing them. Never call runtime behavior or release readiness verified without evidence. Do not publish or send real support submissions.
+
+P0 RESEARCH + PLAN (first response)
+Search online yourself for the named competitor and up to two close alternatives: official store screenshots, available gameplay videos and recent reviews. Normally do not ask me for competitor screenshots. Cite accessible URLs; distinguish observed visuals, review claims and inference. Do not infer timing, ad frequency or hidden progression from screenshots. If a reference is inaccessible, report that and use accessible references; ask me only for a specific indispensable missing reference. Limit research to decisions that improve this game.
+Define 3 concrete improvements over observed weaknesses without copying branding, assets, code or levels. Define audience/age scope, first 10 seconds, controls, win/fail, scoring, core/reward loops, difficulty, session length, content target, replay hook, screen flow, visual direction, architecture and biggest technical risk. Select a voluntary rewarded-ad offer that fits this game's actual rules and concept; don't add lives to games that have none. Turn these into testable acceptance criteria, not a subjective quality percentage.
+Save this entire contract, game/config values, sources, concise decisions, phase checklist and evidence/pending checks in docs/GAME_PLAN.md (or update the existing equivalent). Stop after this plan; no game implementation yet. Ask only blocking questions. On each Continue, read the saved plan and implement one next phase completely; keep plan/status current. Reuse prior findings, inspect targeted files, avoid repeated briefs and long logs.
+
+P1 PLAYABLE CORE + CONTENT
+Build the actual genre-specific mechanics with satisfying input, fair progression and enough authored/validated content for repeat sessions. Handle rules, difficulty, scoring, tutorial, pause/restart/results, lifecycle, local saves and migration/corruption fallback. Avoid forcing every concept into levels or adding fake controls. Validate the genre's main risk (e.g. audio-clock timing/calibration for rhythm, stable loads for bridge puzzles) through source review plus explicit manual checks.
+
+P2 VISUALS + AUDIO + PROFILE
+Give every screen a coherent, attractive game identity: home, gameplay/HUD, results, profile, settings and dialogs. Use efficient 2.5D depth, lighting/shadows, layers, tactile buttons, purposeful animation, particles and optional subtle parallax. Keep small-screen readability, safe areas, responsive layouts, accessible targets/contrast, reduced motion and fast retry. Aim for smooth play on modest phones; no heavy 3D engine by default.
+Make a game-specific sound event list. Find, audition when tools allow, download and integrate suitable online audio licensed for commercial redistribution (prefer CC0). Save source URL, author, license proof and attribution per asset; never rip competitor sounds. If unavailable, create original audio or record the exact blocker. Wire real gameplay/UI/reward/win/fail triggers, not just toggles; trim/normalize/preload appropriately, control overlap and volume, separate SFX/music/haptics, pause on background/audio focus loss. For rhythm, use a reliable audio clock and latency calibration; inspect actual audio when possible and leave device timing checks pending.
+Create an appealing local profile: earned best scores/stats, clear next goal, progress, tasteful unlocks, badges/avatar and rewarding results. Persist real achievements; no fake ranks, mandatory login or punitive streaks.
+
+P3 MONETIZATION
+Owner Android configuration:
+${ads}
+These IDs are public configuration, not credentials. Never invent/reuse another game's IDs. Use Google Mobile Ads' current Flutter guide, not duplicate native SDK setup. Debug/manual QA uses official test App ID and test units; release uses only configured production IDs. Missing App ID disables production ads; missing units disable those formats safely. Separate configuration; verify manifest App ID uses ~, units use /. Don't initialize/load/request ads before applicable consent/age/privacy requirements allow it; don't infer child-directed status from the package name.
+Prefer the concept's own voluntary rewarded offer (for example, a hint after a failed puzzle or a post-session bonus). Normal play, retry and progress stay available without watching ads. Do not add lives/revives to a game whose rules have no lives. Only when extra lives are already a natural, useful mechanic: the first extra life in a run costs 1 rewarded ad, the second costs 2, the third and later cost 3: requiredAds=min(successfulRevivesThisRun+1,3). Initial life is free; reset this counter on a fresh run. For a game without lives, keep its concept-fit reward as a normal single opt-in rewarded-ad offer; do not apply the life bundle count to hints/bonuses unless the concept itself explicitly calls for that.
+Before opt-in, state the exact reward and number of ads. For a life bundle, show earned/required progress; the user taps to start each next ad and can cancel. Count only SDK earned-reward callbacks once per ad; grant exactly one revive after the full bundle; increment revive count only on grant. Preserve partial earned credit within that run, including safe restoration after interruption; prevent replayed callbacks/double grants. For a single-ad reward, grant once only after its earned callback. Dismissal alone, no-fill, offline or timeout earns nothing new; offer retry later/free restart and disclose that a new run resets life-bundle credit. Never autoplay a chain or gate ordinary play behind ads.
+Use one full-screen ad at a time. No ads over active play, tutorial, exit or support. Interstitials only at natural breaks with documented time/session caps and no stacking after rewarded ads. App-open only on appropriate loading/resume with cooldown, never from returning from another ad/consent flow. Banner/native only in safe non-play areas with clear labeling; rewarded interstitial requires its own compliant intro/opt-out. Supplied IDs do not require enabling every format.
+Centralize loading/disposal/lifecycle/caps. Log useful consent-aware gameplay, retention, reward completion/abandonment and ad outcomes without personal data; integrate existing analytics/crash monitoring or document missing Firebase setup. Treat escalating ad cost per extra life as a hypothesis to measure, not guaranteed profit.
+
+P4 SUPPORT + ANDROID AUDIT
+Implement HTTPS JSON POST to https://formspree.io/f/xqpkqbjl with Content-Type and Accept: application/json. Dashboard recipient: shuvo4727@gmail.com. Only user input: one required multiline message; only form controls: Cancel/Close and Send. Read the current installed app display name at runtime (e.g. existing package_info_plus); send invisible subject exactly "Support Request — [automatic app name]" plus message. No visible subject/name/email/phone/account field, mailto primary flow, credentials or custom backend. Add a brief caring intro and explain the message goes to support; do not promise a personal reply without contact details.
+Trim/validate; disable sending/re-entry while in flight; show loading, close after confirmed success with a visible success notice; preserve draft and show useful offline/timeout/rate-limit/provider errors. Prevent double taps and concurrent requests; no automatic retry after an ambiguous timeout. Handle unmounted UI safely. Document endpoint activation, recipient verification, plan limits and any CAPTCHA/domain restrictions affecting native mobile clients. Email routing is dashboard-controlled; code alone cannot verify delivery.
+Inspect/fix relevant pubspec.yaml assets/dependencies, AndroidManifest permissions/App ID/labels, applicationId/namespace, Gradle/AGP/Kotlin/SDK compatibility and ProGuard/R8 rules using current official docs. Don't add blanket keep/dontwarn rules or duplicate SDK dependencies. Review release signing configuration without exposing secrets. Record manual release-build/shrinking checks still needed.
+
+P5 STORE ASSETS + ASO
+Produce files: exactly 8 distinct attractive promotional screenshots; original 512x512 Play icon (32-bit PNG), adaptive launcher artwork/config, 1024x500 feature graphic (JPEG/24-bit PNG without alpha), editable sources, asset manifest and ASO listing. Match the game's real style; generate original decorative art where useful. Screenshot panels must use actual supplied/captured app UI, not invented gameplay or competitor images. Choose orientation matching the game (1080x1920 portrait or 1920x1080 landscape), with real gameplay prominent and concise readable benefits.
+With no usable game captures, create all 8 editable layouts/storyboards and exact manual capture instructions, mark them CAPTURE NEEDED, and finish truthful exports when captures arrive. Never run the app to obtain them under this contract or call placeholders upload-ready. Inspect rendered assets for clipping, legibility, dimensions and consistency.
+Write natural, relevant keyword-based Play copy: title <=30, short description <=80, full description <=4000 characters; check current official limits. Show genuine differentiators, no fake claims, keyword stuffing, competitor branding or "100% ASO"/ranking/install guarantees. Document screenshot filenames/copy and a simple future listing experiment.
+
+P6 REVIEW + HANDOFF
+Review all acceptance criteria, source/config and supplied manual play/screenshots/logs. Fix concrete gaps; distinguish implemented, source-reviewed, manually verified and blocked. Write tests/checks for rules, saves/lifecycle, selected rewarded-offer callback/idempotency (and revive-bundle credit only when the game has lives), failed ads, support duplicates/errors and small screens. Supply a compact human playtest, remaining console setup, privacy/Data safety inputs based on actual SDKs, closed-testing/release checklist and post-launch retention/crash/revenue learning plan. Do not invent console URLs, publish, or claim testing passed without results.
+Each phase ends with a short change/evidence summary, exact owner checks and the next phase. Keep unresolved work visible; ask for manual results when needed and continue independent authorized work.`;
+    }
+
+    function followupPrompt(c, mode) {
+      const focus = {
+        continue: "Implement the next incomplete phase only.",
+        polish: "Complete P2: cohesive 2.5D screen polish, real licensed sound triggers and attractive local profile. Fix core blockers first.",
+        ads: "Complete P3: safe AdMob configuration, the 1/2/3-ad bundle only for a game's natural extra-life mechanic, its concept-fit reward otherwise, lifecycle/callback safety, caps and outcome measurement.",
+        support: "Complete P4: runtime-name one-field Formspree support plus focused pubspec/manifest/Gradle/R8 review.",
+        store: "Complete P5: exactly 8 truthful promo screenshots, icon/launcher artwork, feature graphic and ASO copy. Use real captures; if missing, create 8 editable layouts and mark final exports pending.",
+        review: "Use my manual results below to reproduce in reasoning, fix reported defects and update acceptance/evidence status. Do not invent passing results."
+      };
+      return `Continue ${c.name} in its repository (${c.packageName}; preserve any existing published ID).
+Read docs/GAME_PLAN.md or its recorded equivalent; reuse its complete contract and configuration. ${focus[mode]}
+Do not execute Flutter/Dart commands, Gradle, installs, emulators, device captures or packaging; I handle execution. Review source/files, update the plan and report changes, evidence, pending checks and next step briefly. If the saved contract is missing, request the master prompt rather than inventing requirements.${mode === "review" ? "\n\nMy manual results:\n[Paste logs, screenshots or playtest notes here.]" : ""}`;
+    }
+    function generate() {
+      const c = currentConfig();
+      if (c.errors.length) {
+        invalidate();
+        status("promptStatus", c.errors.join("\n"), "error");
+        return false;
+      }
+      const mode = $("promptMode").value;
+      const value = mode === "master" ? masterPrompt(c) : followupPrompt(c, mode);
+      $("masterPrompt").value = value;
+      $("copyPrompt").disabled = false;
+      const words = value.split(/\s+/).length;
+      $("promptMetrics").textContent = words.toLocaleString("en-US") + " words · " + value.length.toLocaleString("en-US") + " characters · token count model/language অনুযায়ী আলাদা।";
+      status("promptStatus", mode === "master" ? "Master প্রস্তুত। Game-এর নিজস্ব project/task-এ একবার পাঠাও।" : "Saved master contract থাকা একই game project-এ ব্যবহার করো।", "ok");
+      return true;
+    }
+    async function copyPrompt() {
+      if (!generate()) return;
+      const value = $("masterPrompt").value;
+      let copied = false;
+      try {
+        await navigator.clipboard.writeText(value);
+        copied = true;
+      } catch (_) {
+        $("masterPrompt").focus();
+        $("masterPrompt").select();
+        try { copied = document.execCommand("copy"); } catch (_) { copied = false; }
+      }
+      status("promptStatus", copied ? "Copied — Codex-এ paste করো।" : "Automatic copy হয়নি। নিচের selected prompt Ctrl+C দিয়ে copy করো।", copied ? "ok" : "error");
+    }
+
+    $("gameName").addEventListener("input", () => {
+      if (!slugEdited) $("gameSlug").value = slugFrom($("gameName").value);
+      $("adReview").checked = false;
+      updatePackage(); invalidate();
+    });
+    $("gameSlug").addEventListener("input", () => {
+      slugEdited = Boolean($("gameSlug").value);
+      $("adReview").checked = false;
+      updatePackage(); invalidate();
+    });
+    $("gameConcept").addEventListener("input", () => {
+      const match = $("gameConcept").value.match(/^\s*(?:[-*#]+\s*)?(?:\*\*)?Working title:\s*(?:\*\*)?\s*(.+)$/im);
+      if (match) {
+        $("gameName").value = match[1].replace(/\*\*/g, "").trim();
+        if (!slugEdited) $("gameSlug").value = slugFrom($("gameName").value);
+      }
+      $("adReview").checked = false;
+      updatePackage(); invalidate();
+    });
+    Object.keys(adFields).forEach((id) => $(id).addEventListener("input", () => {
+      $("adReview").checked = false; invalidate();
+    }));
+    $("admobBlock").addEventListener("input", () => {
+      $("adReview").checked = false;
+      status("importStatus", "নতুন block import করলে আগের সব mapped IDs replace হবে।");
+      invalidate();
+    });
+    $("adReview").addEventListener("change", invalidate);
+    $("clearAds").addEventListener("click", clearAds);
+    $("importAds").addEventListener("click", () => {
+      invalidate();
+      $("adReview").checked = false;
+      const result = parseAdBlock($("admobBlock").value);
+      const errors = result.errors.concat(validateAds(result.found));
+      if (errors.length) {
+        // No partial import: never silently carry an unresolved format forward.
+        importedBlock = "";
+        status("importStatus", errors.join("\n") + "\nImport হয়নি; labels/IDs ঠিক করো অথবা block clear করে নিচে manually বসাও।", "error");
+        return;
+      }
+      Object.keys(adFields).forEach((id) => { $(id).value = result.found[id] || ""; });
+      importedBlock = $("admobBlock").value;
+      const missing = Object.keys(adFields).filter((id) => !result.found[id]).map((id) => adFields[id]);
+      status("importStatus", Object.keys(result.found).length + " IDs imported. Mapping ও game মিলিয়ে checkbox tick করো।" + (missing.length ? "\nMissing: " + missing.join(", ") + " — production use বন্ধ থাকবে।" : ""), "ok");
+    });
+    $("newGame").addEventListener("click", () => {
+      clearAds();
+      ["gameName", "gameSlug", "gameConcept"].forEach((id) => { $(id).value = ""; });
+      $("promptMode").value = "master";
+      slugEdited = false;
+      updatePackage();
+      status("promptStatus", "নতুন game-এর concept paste করো।");
+      $("gameConcept").focus();
+    });
+    $("promptMode").addEventListener("change", () => { invalidate(); generate(); });
+    $("generatePrompt").addEventListener("click", generate);
+    $("copyPrompt").addEventListener("click", copyPrompt);
+    $("copyContinuationPrompt").addEventListener("click", () => {
+      $("promptMode").value = "continue";
+      generate();
     });
   </script>
 </body>
