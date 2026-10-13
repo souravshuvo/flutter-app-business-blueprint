@@ -18,7 +18,7 @@ These are concept briefs, not completed PRDs or built games. The shared scope is
 
 | # | Project | Development difficulty | Suggested Android package |
 | --- | --- | --- | --- |
-| 1 | [Parcel Perfect](#1-parcel-perfect) | Medium | `com.childhood.parcelperfect` |
+| 1 | [Cozy Fit](#1-cozy-fit) | Medium | `com.childhood.cozyfit` |
 | 2 | [Switchyard Minute](#2-switchyard-minute) | Medium | `com.childhood.switchyardminute` |
 | 3 | [Bolt & Balance](#3-bolt--balance) | Medium-high | `com.childhood.boltbalance` |
 | 4 | [Pocket Pinball Expedition](#4-pocket-pinball-expedition) | Medium-high | `com.childhood.pocketpinballexpedition` |
@@ -26,7 +26,7 @@ These are concept briefs, not completed PRDs or built games. The shared scope is
 | 6 | [Tiny Conveyor Works](#6-tiny-conveyor-works) | Medium | `com.childhood.tinyconveyorworks` |
 | 7 | [Night Market Minute](#7-night-market-minute) | Medium | `com.childhood.nightmarketminute` |
 | 8 | [Pocket Habitat](#8-pocket-habitat) | Medium | `com.childhood.pockethabitat` |
-| 9 | [The Room Changed](#9-the-room-changed) | Medium | `com.childhood.theroomchanged` |
+| 9 | [Object Finder](#9-object-finder) | Medium | `com.childhood.objectfinder` |
 | 10 | [Sum Foundry](#10-sum-foundry) | Low-medium | `com.childhood.sumfoundry` |
 | 11 | [Cable Garden](#11-cable-garden) | Medium | `com.childhood.cablegarden` |
 | 12 | [Lighthouse Relay](#12-lighthouse-relay) | Low-medium | `com.childhood.lighthouserelay` |
@@ -49,11 +49,11 @@ These are concept briefs, not completed PRDs or built games. The shared scope is
 | 29 | [Meadow Claim](#29-meadow-claim) | Medium | `com.childhood.meadowclaim` |
 | 30 | [Bridge Relay](#30-bridge-relay) | Medium-high | `com.childhood.bridgerelay` |
 
-## 1. Parcel Perfect
+## 1. Cozy Fit
 
-**Working title: Parcel Perfect**
+**Working title: Cozy Fit**
 
-- **Suggested Android package:** `com.childhood.parcelperfect`
+- **Suggested Android package:** `com.childhood.cozyfit`
 - **Genre:** Spatial packing and planning puzzle.
 - **Gameplay concept:** Pack a delivery van so every parcel fits and can be removed through its loading door in the required delivery order.
 - **Core gameplay loop:** Inspect shapes and delivery order -> rotate and place parcels -> simulate unloading -> revise or complete -> unlock another delivery.
@@ -161,11 +161,11 @@ These are concept briefs, not completed PRDs or built games. The shared scope is
 - **Main competitor/category:** Relaxing landscape-placement games such as [Land Builder](https://apps.apple.com/us/app/land-builder/id6443774303).
 - **What makes it different:** Small completed ecosystems have explicit animal needs and trade-offs, giving each board a measurable objective and ending.
 
-## 9. The Room Changed
+## 9. Object Finder
 
-**Working title: The Room Changed**
+**Working title: Object Finder**
 
-- **Suggested Android package:** `com.childhood.theroomchanged`
+- **Suggested Android package:** `com.childhood.objectfinder`
 - **Genre:** Observation and visual-memory puzzle.
 - **Gameplay concept:** Inspect a small illustrated room, then identify objects that moved, vanished, or changed while the lights were out.
 - **Core gameplay loop:** Observe room -> experience transition -> identify changes -> receive accuracy score -> try a new arrangement.

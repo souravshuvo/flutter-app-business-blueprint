@@ -63,15 +63,15 @@
 </head>
 <body>
   <header>
-    <div class="eyebrow">One concept. One game. A reusable workflow.</div>
+    <div class="eyebrow">Visual-first v2 · One concept. One game.</div>
     <h1>Universal Flutter Game Prompt Builder</h1>
-    <p>৩০টি concept থেকে একবারে একটি game। একই master brief-এ research, gameplay, sound, polish, ads, support ও store assets। Instructions ইংরেজিতে; ব্যবহারবিধি বাংলায়।</p>
+    <p>একটি concept থেকে professional 3D game। Master একবার দিলে research, playable scene, character tutorial, polish, ads ও store assets-এর কাজ চলবে; routine confirmation লাগবে না। Instructions ইংরেজিতে; ব্যবহারবিধি বাংলায়।</p>
   </header>
   <main>
     <div class="steps">
       <div class="step"><strong>১ · Concept + IDs</strong><span>একটি game-এর details ও AdMob-এর পুরো block paste করো।</span></div>
-      <div class="step"><strong>২ · Master একবার</strong><span>Game-এর নিজস্ব project/task-এ পাঠাও। প্রথমে research ও plan হবে।</span></div>
-      <div class="step"><strong>৩ · ছোট Continue</strong><span>Plan দেখে Continue পাঠাও। প্রতি বার পরের একটি phase হবে।</span></div>
+      <div class="step"><strong>২ · Master একবার</strong><span>প্রথমে ছবিসহ research ও plan; পরের Continue-এ একটি সুন্দর playable level।</span></div>
+      <div class="step"><strong>৩ · Playtest → Repair</strong><span>তুমি screenshot/video ও playtest ফল দেবে। Codex ঘাটতি ঠিক করে কাজ চালাবে; প্রতি phase-এ Continue লাগবে না।</span></div>
     </div>
     <section class="card" aria-labelledby="conceptHeading">
       <div class="heading">
@@ -100,7 +100,15 @@ Main monetization opportunity: ...
 Development difficulty: ...
 Main competitor/category: [name](URL)
 What makes it different: ..."></textarea>
-          <small>Working title: থাকলে title নিজে বসবে। Competitor-এর নাম/link রাখো; Codex অনলাইনে screenshot ও gameplay reference খুঁজবে। তোমার screenshot সাধারণত লাগবে না।</small>
+          <small>Working title: থাকলে title নিজে বসবে। Competitor-এর নাম/link রাখো; Codex অনলাইনে reference খুঁজে ছবিও দেখবে। নির্দিষ্ট reference খুলতে না পারলেই তোমার সাহায্য লাগতে পারে।</small>
+        </div>
+        <div class="field wide">
+          <label for="visualBrief">Gameplay video (main reference) / screenshot / বর্তমান game-এর সমস্যা <small>· optional</small></label>
+          <textarea id="visualBrief" placeholder="Reference gameplay video: URL or path, important timestamps and what you like.
+Supporting screenshots: URLs or image paths for layout and art detail.
+My game: video/screenshot paths and problems to fix; label separately from references.
+Style preference: optional; otherwise choose for this genre."></textarea>
+          <small>Gameplay বোঝার প্রধান reference হবে video; screenshot layout/art-এর সহায়ক। নিজের game ও reference video আলাদা করে চিহ্নিত করো, দরকারি timestamp লিখো। এখানে শুধু লেখা/path prompt-এ যাবে; media upload হবে না। অন্য task-এ accessible না হলে সেখানে attach করো।</small>
         </div>
       </div>
     </section>
@@ -140,14 +148,19 @@ ca-app-pub-.../..."></textarea>
     </section>
     <section class="card" aria-labelledby="rulesHeading">
       <h2 id="rulesHeading">প্রতি game-এ যা থাকবে</h2>
-      <div class="notice"><strong>Manual verification:</strong> Codex game run, build, pub get, analyze, test, formatter, Gradle, install বা emulator চালাবে না। Code/config ও assets তৈরি করবে; তুমি checks চালিয়ে ফল দেবে।</div>
-      <p class="help">Polished 2.5D-style screens ও animation, licensed online sounds, আকর্ষণীয় local profile, optional rewarded ads, Android config review, এক-field support form, ৮টি promo screenshot, icon, feature graphic ও ASO copy।</p>
+      <div class="notice"><strong>Code দেখে promo তৈরি:</strong> Codex game run/play বা capture করবে না। Implemented code, layout, theme ও assets দেখে নিজেই ৮টি final promo image বানাবে; তোমার capture বা routine confirmation লাগবে না।</div>
+      <p class="help">Default হবে real-time 3D scene: camera, mesh/model, lighting, depth ও interactive character/object। Flutter UI থাকবে HUD/settings-এর জন্য। Genre অনুযায়ী camera ও art direction বদলাবে; শুধু shadow বা 2D ছবিকে 3D বলা যাবে না।</p>
+      <div class="notice"><strong>Autonomous work:</strong> P0 plan লিখেই থামবে না; প্রথম 3D playable session বানিয়ে প্রয়োজনীয় পরের কাজ করবে। Design, artwork, tutorial বা পরের phase-এর routine approval চাইবে না। Device evidence না থাকলে verification pending থাকবে, স্বাধীন implementation চলবে; screenshot থেকে FPS যাচাই হবে না।</div>
       <details>
         <summary>Ads, support ও screenshot-এর নিয়ম</summary>
         <ul class="help">
           <li>Game-এ life থাকলে একই run-এ প্রথম extra life = ১ ad, দ্বিতীয় = ২, এরপর প্রতি extra life = ৩। Life না থাকলে game-এর মানানসই reward (যেমন hint) রাখবে; কৃত্রিম life system যোগ করবে না।</li>
           <li>Support: শুধু message, Cancel ও Send। Endpoint <code>https://formspree.io/f/xqpkqbjl</code>; dashboard recipient <code>shuvo4727@gmail.com</code>। Runtime app name থেকে invisible <code>subject</code> হবে।</li>
-          <li>Competitor research Codex নিজে করবে। Store promo-তে তোমার বাস্তব game দেখাবে। Capture না থাকলে ৮টি editable template ও capture instructions হবে; final export capture পাওয়ার পরে।</li>
+          <li>Reference-এর actual ছবি দেখে camera, play area, artwork ও HUD নির্ধারণ করবে। প্রয়োজনীয় sprite, object, background ও sound সংগ্রহ/তৈরি করে gameplay-তে ব্যবহার করবে।</li>
+          <li>Gameplay video আগে দেখবে: action, controls, movement, timing, win/fail ও retry flow বুঝবে। Screenshot থেকে gameplay ধরে নেবে না; screenshot হবে layout/art-এর supporting reference।</li>
+          <li>Original guide character একবারে একটি action শেখাবে; সঠিক action করলে tutorial এগোবে। Skip ও Help থেকে Replay থাকবে।</li>
+          <li>Reward card-এ কী পাওয়া যাবে স্পষ্ট থাকবে। App-open ad eligible loading/resume-এ চালু হবে; required consent থাকবে, অপ্রয়োজনীয় privacy dialog থাকবে না। Install নিজে ad trigger নয়।</li>
+          <li>তোমাকে capture দিতে হবে না। Code ও assets দেখে ৮টি আলাদা promo composition, final PNG/JPEG ও editable source বানাবে। এগুলো actual gameplay capture দাবি করবে না; code-এ নেই এমন feature দেখাবে না। শুধু template দিয়ে শেষ করবে না।</li>
           <li>কোনো “100% ASO”, guaranteed profit বা evidence ছাড়া “competitor-এর চেয়ে ভালো” দাবি থাকবে না। লক্ষ্য হবে নির্দিষ্ট, যাচাইযোগ্য উন্নতি।</li>
         </ul>
       </details>
@@ -158,8 +171,9 @@ ca-app-pub-.../..."></textarea>
         <label for="promptMode">কোন ধাপ?</label>
         <select id="promptMode">
           <option value="master">Master — প্রথমবার, সম্পূর্ণ brief</option>
-          <option value="continue">Continue — পরের phase, সবচেয়ে ছোট</option>
-          <option value="polish">Focus — screen polish + sound + profile</option>
+          <option value="repair">Repair existing game — নতুন নিয়মে পুরোনো game ঠিক করো</option>
+          <option value="continue">Continue — quality gate দেখে পরের কাজ</option>
+          <option value="polish">Focus — gameplay visuals + controls + sound</option>
           <option value="ads">Focus — game অনুযায়ী ads + reward</option>
           <option value="support">Focus — support + Android config</option>
           <option value="store">Focus — 8 screenshots + icon + ASO</option>
@@ -175,10 +189,10 @@ ca-app-pub-.../..."></textarea>
       <p id="promptMetrics" class="metrics">Master একবার পাঠাও; একই task-এ Continue ব্যবহার করো।</p>
       <label for="masterPrompt">Generated prompt <span lang="en">· English</span></label>
       <textarea id="masterPrompt" lang="en" readonly placeholder="Game title ও concept বসিয়ে Generate prompt চাপো।"></textarea>
-      <p class="help">Master prompt আগে ব্যবহার করো। Continue/Focus prompt saved <code>docs/GAME_PLAN.md</code> ব্যবহার করবে। নতুন task হলে একই game repository খুলো। Manual ফল/notes Review prompt-এর নিচে paste করো।</p>
+      <p class="help">নতুন game: Master একবার পাঠাও; Codex ধারাবাহিকভাবে কাজ করবে। Screenshot/gameplay video পেলে Review দিয়ে repair করাও। পুরোনো game: একই concept দিয়ে <strong>Repair existing game</strong> পাঠাও; code, saves ও IDs রেখে 3D ও tutorial-এর নতুন নিয়ম যুক্ত হবে। Continue শুধু interrupted কাজ resume করার জন্য।</p>
       <details>
         <summary>কখন কাজ শেষ বলা যাবে?</summary>
-        <p class="help">Implementation, assets, pending capture এবং manually verified ফল আলাদা থাকবে। Gameplay, audio timing, ad rewards, actual support delivery ও release build তুমি পরীক্ষা না করা পর্যন্ত verified বলা যাবে না। Missing console configuration বা capture থাকলে সেটি pending থাকবে।</p>
+        <p class="help">Implementation ও verification আলাদা থাকবে। Failed playable scene আগে repair করবে; unverified scene থেকে bulk content বানাবে না। Pending device evidence অন্য স্বাধীন কাজ আটকে রাখবে না। প্রয়োজনীয় screenshot/check একসঙ্গে একবার চাইবে। Gameplay, audio timing, ad rewards, support delivery ও release startup-এর ফল ছাড়া full game ready বলা যাবে না।</p>
       </details>
     </section>
     <footer>
@@ -192,7 +206,7 @@ ca-app-pub-.../..."></textarea>
           <li><a href="https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax">Formspree JSON submissions</a> · <a href="https://help.formspree.io/articles/building-your-form/special-fields">Formspree subject field</a></li>
           <li><a href="https://support.google.com/googleplay/android-developer/answer/9866151?hl=en">Play preview assets</a> · <a href="https://developer.android.com/distribute/google-play/resources/icon-design-specifications">Icon specifications</a> · <a href="https://support.google.com/googleplay/android-developer/answer/9859152?hl=en">Store listing limits</a></li>
         </ul>
-        <p>References checked: 2026-10-01. Game বানানোর সময় current official requirements আবার যাচাই করতে বলা আছে।</p>
+        <p>Prompt workflow updated: 2026-10-13. UMP, app-open ও Play listing references checked: 2026-10-13; game বানানোর সময় renderer ও provider-এর current official requirements আবার যাচাই করবে।</p>
       </details>
     </footer>
   </main>
@@ -299,6 +313,7 @@ ca-app-pub-.../..."></textarea>
       const name = $("gameName").value.trim();
       const slug = $("gameSlug").value.trim();
       const concept = $("gameConcept").value.trim();
+      const visualBrief = $("visualBrief").value.trim();
       const ads = Object.fromEntries(Object.keys(adFields).map((id) => [id, $(id).value.trim()]));
       const errors = [];
       if (!name) errors.push("Game title দাও।");
@@ -307,70 +322,92 @@ ca-app-pub-.../..."></textarea>
       errors.push(...validateAds(ads));
       if ($("admobBlock").value.trim() && $("admobBlock").value !== importedBlock) errors.push("AdMob block বদলেছে; Import IDs চাপো অথবা block মুছে manual IDs ব্যবহার করো।");
       if (Object.values(ads).some(Boolean) && !$("adReview").checked) errors.push("IDs এই game-এর কিনা মিলিয়ে নিচের checkbox tick করো।");
-      return { name, slug, concept, ads, packageName: "com.childhood." + slug, errors };
+      return { name, slug, concept, visualBrief, ads, packageName: "com.childhood." + slug, errors };
     }
 
-    function masterPrompt(c) {
+    function masterPrompt(c, repair = false) {
       const ads = Object.entries(c.ads).filter(([, value]) => value).map(([id, value]) => adFields[id] + "=" + value).join("\n") || "None supplied.";
-      return `Build one original, polished Flutter Android game in this game repository. Act as game designer, Flutter engineer and product reviewer. Owner-facing explanations: concise Bangla; repository artifacts: English.
+      const entry = repair
+        ? "REPAIR EXISTING GAME: Read the existing plan/code and inspect supplied app/reference images and gameplay video. Apply this full v3 contract to the same game; preserve working mechanics, saves, published identity and this game's recorded ad IDs unless explicitly replaced. Migrate rendering in focused steps toward real 3D without resetting the project or progress. Map old phases to the criteria below; source-complete claims are not visual passes. Repair the earliest failed playable scene in this turn and continue all independent authorized work."
+        : "NEW GAME: Complete the compact P0 plan, then implement P1 in this same turn and continue through all feasible phases without waiting for Continue or design approval. If this repository already contains this game, reconcile its plan with this contract and resume at the earliest unmet criterion; preserve completed work and saved configuration.";
+      return `Build one original, professional real-time 3D Flutter Android game. Act as game designer, 3D game artist, Flutter engineer and reviewer. Owner explanations: concise Bangla; repository artifacts: English.
+CONTRACT: AUTONOMOUS-3D-3
+${entry}
 GAME: ${c.name}
 NEW UNPUBLISHED APP PACKAGE: ${c.packageName}
 CONCEPT:
-${c.concept}
+${c.concept}${c.visualBrief ? "\n\nOWNER VISUAL REFERENCES / CURRENT ISSUES:\n" + c.visualBrief : ""}
 
 WORK CONTRACT
-Inspect repository/instructions/dependencies first; preserve unrelated work and an already-published package ID. Use Flutter; add Flame only when helpful. Keep rules/state, UI, saves, audio, ads and platform services separate. Core play is offline; ads/support may need internet. No accounts, custom backend or scope bloat.
-Do NOT execute Flutter/Dart commands (including pub get, run, build, analyze, test, format), Gradle, installs, emulators, device launches/captures or release packaging. I will run them manually. Edit source/config, download licensed assets and generate artwork as needed. Perform source/file checks; write meaningful tests and exact manual commands/checklists without executing them. Never call runtime behavior or release readiness verified without evidence. Do not publish or send real support submissions.
+Inspect instructions, architecture and dependencies; preserve unrelated work and published IDs. Use Flutter for app shell/HUD and a maintained Android-compatible real-time 3D renderer for gameplay. Inspect installed capabilities and current official renderer documentation before choosing the smallest viable integration; do not assume Flame or ordinary Flutter widgets provide a 3D engine. Record renderer/version, Android support, model formats, camera/lighting/input/lifecycle support and limitations. Separate rules/state, rendering, saves and services. Core play works offline. Preserve the concept's differentiator; don't silently rename/recast it or add accounts/backends.
+Standing authorization covers reversible in-repository design, implementation, renderer integration, licensed/free assets, original asset generation, tutorial, ads, support code and store files. Choose sensible defaults and record them; do not ask whether to start, implement, use a design, or move to the next phase. Batch genuinely missing inputs once and continue independent work. Ask only for required external access, paid purchases, destructive actions or a material change outside this brief; do not bypass tool/sandbox approval. No real messages, purchases or publishing are authorized.
+CODE-BASED PROMO WORKFLOW: I will not provide captures, and you must not run/play the game to make promo images. Do not execute Flutter/Dart commands (pub get/run/build/analyze/test/format), Gradle, installs, emulators, device launches/captures or release packaging. Source inspection, licensed downloads, original asset generation and rendering standalone promo compositions to PNG/JPEG are allowed. Inspect the source and existing assets to produce faithful illustrated/reconstructed promo images of implemented features; do not represent them as actual runtime captures. Write meaningful tests and owner checks without running them. Do not publish or send real support submissions. This replaces the earlier self-capture authorization.
+Keep this contract, configuration, reference evidence, decisions and phase status in docs/GAME_PLAN.md or its existing equivalent. Read it on resume; update only changed findings. Track implementation (TODO/READY) separately from verification (PASS/FAIL/PENDING), with evidence per criterion. Source written, asset counts, reconstructed promo images and bare "Continue" are not runtime/visual evidence. A failed gate means repair. Owner screenshots are optional feedback, not a prerequisite for promo production; finish code-based promo exports without game execution. Missing other device/human evidence is a verification dependency, not an approval gate: request exact remaining checks together once and finish independent work. Do not mass-produce content from a failed/unverified scene or invent passes. Continue until feasible authorized work is finished; checkpoints are progress updates, not approval requests. If interrupted, save the exact next action.
 
-P0 RESEARCH + PLAN (first response)
-Search online yourself for the named competitor and up to two close alternatives: official store screenshots, available gameplay videos and recent reviews. Normally do not ask me for competitor screenshots. Cite accessible URLs; distinguish observed visuals, review claims and inference. Do not infer timing, ad frequency or hidden progression from screenshots. If a reference is inaccessible, report that and use accessible references; ask me only for a specific indispensable missing reference. Limit research to decisions that improve this game.
-Define 3 concrete improvements over observed weaknesses without copying branding, assets, code or levels. Define audience/age scope, first 10 seconds, controls, win/fail, scoring, core/reward loops, difficulty, session length, content target, replay hook, screen flow, visual direction, architecture and biggest technical risk. Select a voluntary rewarded-ad offer that fits this game's actual rules and concept; don't add lives to games that have none. Turn these into testable acceptance criteria, not a subjective quality percentage.
-Save this entire contract, game/config values, sources, concise decisions, phase checklist and evidence/pending checks in docs/GAME_PLAN.md (or update the existing equivalent). Stop after this plan; no game implementation yet. Ask only blocking questions. On each Continue, read the saved plan and implement one next phase completely; keep plan/status current. Reuse prior findings, inspect targeted files, avoid repeated briefs and long logs.
+P0 VISUAL RESEARCH + PLAN
+GAMEPLAY VIDEO IS THE PRIMARY REFERENCE for understanding behavior. Inspect the owner's reference gameplay video first using available video inspection tools; distinguish reference footage from footage of this implementation. Trace representative sequences: start/tutorial -> player action -> game response -> scoring/progression -> win/fail -> retry. Record timestamps, observable controls/gestures, camera/object movement, feedback, pacing and transitions; separate observed facts from inferred rules. Listen to audio when supported and state if it could not be inspected. Do not infer the whole game from a trailer, a few extracted frames or screenshots; frame inspection supports visuals but does not verify motion or timing. The written concept remains the authority for the game's rules and differentiator; borrow reference craft without silently copying its mechanics or assets.
+Search the named competitor and up to two alternatives for accessible real gameplay footage, official store images and relevant recent reviews. Prioritize gameplay footage over static screenshots for behavior. Use screenshots as supporting evidence for camera, layout, HUD, palette and artwork, and inspect their actual pixels. Store text, URLs and alt text alone are insufficient. If a video cannot be opened or only frames are inspectable, report that exact limitation, mark behavior/timing conclusions PENDING, use accessible alternatives and batch any essential missing-input request once. Continue source inspection and independent work without pretending screenshots establish gameplay. Separate promo art from actual gameplay and observations from reviews/inference.
+Record a compact visual brief: cited image URLs/paths and observations; orientation/camera; play-area/HUD proportions; palette, lighting/depth; object scale; environment and feedback; three concrete improvements. Default to original stylized real 3D with a genre-fit orthographic/isometric or perspective camera, coherent materials, readable silhouettes, lighting, depth and restrained effects. Keep the actual rules unchanged, including board/puzzle games. Real 3D means interactive meshes/models rendered in a 3D scene; pre-rendered sprites, gradients, card shadows and a static background are not substitutes. Image tools may create textures/concepts but do not by themselves produce working meshes, rigs or animation. If true 3D cannot be implemented here, document the exact technical blocker, finish independent work and mark 3D pending; never silently downgrade to 2D or claim success.
+Plan modest-phone budgets for meshes/triangles, textures, draw calls, effects and memory; choose measured quality settings, culling and resource disposal. Validate one interactive scene and renderer lifecycle before scaling assets. Target 60fps with evidence-based fallback settings; do not claim device performance without a recording/profile.
+Define audience/age scope, first 10 seconds, controls, win/fail, scoring, core/reward loops, easy onboarding, difficulty ramp, session/replay, bounded content, screen flow, architecture and biggest technical risk. Select a useful voluntary reward native to these rules. Create criteria with reference evidence, implementation, owner check and status. Plan one polished playable level/session BEFORE bulk content.
 
-P1 PLAYABLE CORE + CONTENT
-Build the actual genre-specific mechanics with satisfying input, fair progression and enough authored/validated content for repeat sessions. Handle rules, difficulty, scoring, tutorial, pause/restart/results, lifecycle, local saves and migration/corruption fallback. Avoid forcing every concept into levels or adding fake controls. Validate the genre's main risk (e.g. audio-clock timing/calibration for rhythm, stable loads for bridge puzzles) through source review plus explicit manual checks.
+P1 FIRST POLISHED PLAYABLE SESSION
+Build Home -> short interactive tutorial -> one representative normal session -> win/fail/retry, with real rules, basic saves, lifecycle and the game's distinctive mechanic. Integrate final-direction artwork and core sound/feedback NOW. Generic shapes standing in for the agreed artwork, or a decorative menu with unfinished gameplay art, fail this milestone; intentional minimalist games still need cohesive, reference-backed art.
+Implement an original friendly guide character in the same art direction. Use a persisted tutorial state machine: demonstrate one real action, highlight its target, wait for the player's correct action, respond visibly, then teach the next step and celebrate a short first success. Support Skip, Help -> Replay, safe interruption/resume and completion persistence; do not advance only on a timer or Next button. Keep text brief/localizable and the play area unobstructed. No forced ad during onboarding.
+Create an asset list for 3D environment, interactive models/characters, materials/textures, animation, HUD, effects and sounds. Find/download commercial-redistributable models (prefer CC0), or create original meshes procedurally/with available modeling tools; use image generation for texture/concept/HUD art as appropriate. Keep one coherent camera, palette, scale and lighting. Record source/author/license proof/attribution or generation provenance and actual in-game use. Integrate real meshes, transforms, scene hierarchy, hit testing/raycasting, collision bounds and rule-driven states; a static background does not replace interactive geometry. Validate renderer-compatible model files, normals, pivots, UVs, material references and any needed rigs/animation clips; optimize geometry/textures and dispose GPU resources. Never reuse competitor art or unknown-license downloads. Missing essential art remains an explicit gap. Original low-poly procedural models are acceptable when they meet the reference standard; debug cubes alone are not final artwork.
+For scene-based references, build the visible world: terrain/props, readable objects, depth/shadows and movement/interaction effects. Card shadows and tiny labeled symbols alone do not satisfy that reference. Keep ornament behind gameplay readability.
+Make gameplay dominate the usable screen (default >=70% including interaction tray; justify a genre-specific alternative). Keep HUD compact, controls reachable and core play free of page scrolling. Use short contextual cues and direct manipulation; put long rules in Help. Avoid giant headings/register cards squeezing the board. Use compact result overlays with a clear retry. Check safe areas, 48dp targets, contrast and small-phone layout (360x640 logical portrait or landscape equivalent) plus large text; simplify/reflow rather than shrink everything.
+Teach one action at a time, give an easy first success without ads, then add one difficulty dimension gradually. Keep retry and necessary controls free; optional auto-solve/hint rewards must be distinct and disclosed. Drag/tap should respond immediately with clear selection, valid/invalid previews and snap/return feedback where relevant. Keep per-frame work local; preload/cache assets, avoid whole-screen rebuilds or I/O per gesture. Target smooth 60fps on a modest phone; only device evidence can verify it. Handle pause/background/resume. For rhythm use audio-clock timing/calibration; for physics use stable constraints and fair failures.
+Audit package/manifest/dependencies/assets early for startup mistakes. Inspect Home, tutorial, normal gameplay and results in code/assets; do not launch or play the game. Supply one compact owner check for human/device criteria: controls, difficulty/audio, tutorial skip/replay, failure/retry, save/reopen, background/resume and small screen. Owner screenshots/video are optional additional feedback. Inspect any supplied footage using available tools; tie observed problems to a screen/timestamp and repair their causes. State unavailable video/audio inspection. Compare equivalent states with references; never invent footage observations. P1 runtime/visual verification remains pending without real evidence; code-based promo production proceeds independently and does not pass that gate.
 
-P2 VISUALS + AUDIO + PROFILE
-Give every screen a coherent, attractive game identity: home, gameplay/HUD, results, profile, settings and dialogs. Use efficient 2.5D depth, lighting/shadows, layers, tactile buttons, purposeful animation, particles and optional subtle parallax. Keep small-screen readability, safe areas, responsive layouts, accessible targets/contrast, reduced motion and fast retry. Aim for smooth play on modest phones; no heavy 3D engine by default.
-Make a game-specific sound event list. Find, audition when tools allow, download and integrate suitable online audio licensed for commercial redistribution (prefer CC0). Save source URL, author, license proof and attribution per asset; never rip competitor sounds. If unavailable, create original audio or record the exact blocker. Wire real gameplay/UI/reward/win/fail triggers, not just toggles; trim/normalize/preload appropriately, control overlap and volume, separate SFX/music/haptics, pause on background/audio focus loss. For rhythm, use a reliable audio clock and latency calibration; inspect actual audio when possible and leave device timing checks pending.
-Create an appealing local profile: earned best scores/stats, clear next goal, progress, tasteful unlocks, badges/avatar and rewarding results. Persist real achievements; no fake ranks, mandatory login or punitive streaks.
+P2 CONTENT + ALL-SCREEN FINISH
+After P1's implementation is coherent, extend its standard to a small representative content set, progression, results, settings, dialogs and an attractive local profile with real stats, next goals, earned unlocks/badges/avatar. Expand bulk content only after P1 verification passes. Preserve solvability/fairness and concept-specific replay; don't force levels, fake ranks, punitive streaks or busy decoration. Add save migration/corruption fallback, accessible/reduced-motion feedback and coherent purposeful animation.
+Complete the sound event list: download licensed audio, audition where tools allow or create original sounds; wire UI/play/reward/win/fail events. Trim/normalize/preload, control overlap, separate SFX/music/haptics and handle background/audio-focus loss. Record any unlistened files and pending device timing checks. P2 verification needs captures/play results for representative content, key screens, sound, difficulty and saves. Repair observed visual/input failures first; implement independent P3 infrastructure while device checks are pending, keeping ad placement verification pending too.
 
 P3 MONETIZATION
 Owner Android configuration:
 ${ads}
-These IDs are public configuration, not credentials. Never invent/reuse another game's IDs. Use Google Mobile Ads' current Flutter guide, not duplicate native SDK setup. Debug/manual QA uses official test App ID and test units; release uses only configured production IDs. Missing App ID disables production ads; missing units disable those formats safely. Separate configuration; verify manifest App ID uses ~, units use /. Don't initialize/load/request ads before applicable consent/age/privacy requirements allow it; don't infer child-directed status from the package name.
+IDs are public configuration, not secrets. Apply supplied values; absent values preserve this same game's recorded configuration after checking app identity. Never invent/reuse another game's IDs. Follow current official Flutter ads guidance; avoid duplicate native SDK setup. Debug/manual QA defaults to official test App ID/units with no hidden enable flag; release uses only configured production IDs. Missing production App ID disables production ads; missing units disable those formats safely. Verify manifest ~ versus unit /. Respect applicable consent/age/privacy requirements before requesting ads; do not invent an 18+ gate or infer audience from package name.
+Show reward states clearly: eligible, loading, ready, unavailable, consent needed, earned; explain disabled actions and allow retry/free play. No permanently grey reward button, undocumented Settings prerequisite or arbitrary failed-move requirement. Test-mode visibility must not bypass consent or simulate an earned production reward.
+Reduce unnecessary privacy friction using current official UMP guidance: refresh consent information on launch, show a form only when required, request ads only when canRequestAds permits and initialize/load once. Show the Settings privacy-options entry only when required; do not remove required checks, hardcode consent or use non-personalized ads as a consent bypass. Continue free gameplay on errors; diagnose consent/config/no-fill failures separately. References: https://developers.google.com/admob/flutter/privacy and https://developers.google.com/admob/flutter/app-open.
+Make voluntary rewards desirable: a small contextual card with a real reward preview, exact value (e.g. Watch ad -> +1 hint), ready/loading status, a clear free alternative and a satisfying earned animation. Offer at a relevant moment; preserve normal challenge and free progression. No fake urgency, misleading close buttons, encouragement to click ads or repeated nagging. Measure offer views, opt-ins, earned rewards, abandonment and gameplay retention with stable events; treat improvements as hypotheses.
 Prefer the concept's own voluntary rewarded offer (for example, a hint after a failed puzzle or a post-session bonus). Normal play, retry and progress stay available without watching ads. Do not add lives/revives to a game whose rules have no lives. Only when extra lives are already a natural, useful mechanic: the first extra life in a run costs 1 rewarded ad, the second costs 2, the third and later cost 3: requiredAds=min(successfulRevivesThisRun+1,3). Initial life is free; reset this counter on a fresh run. For a game without lives, keep its concept-fit reward as a normal single opt-in rewarded-ad offer; do not apply the life bundle count to hints/bonuses unless the concept itself explicitly calls for that.
 Before opt-in, state the exact reward and number of ads. For a life bundle, show earned/required progress; the user taps to start each next ad and can cancel. Count only SDK earned-reward callbacks once per ad; grant exactly one revive after the full bundle; increment revive count only on grant. Preserve partial earned credit within that run, including safe restoration after interruption; prevent replayed callbacks/double grants. For a single-ad reward, grant once only after its earned callback. Dismissal alone, no-fill, offline or timeout earns nothing new; offer retry later/free restart and disclose that a new run resets life-bundle credit. Never autoplay a chain or gate ordinary play behind ads.
 Use one full-screen ad at a time. No ads over active play, tutorial, exit or support. Interstitials only at natural breaks with documented time/session caps and no stacking after rewarded ads. App-open only on appropriate loading/resume with cooldown, never from returning from another ad/consent flow. Banner/native only in safe non-play areas with clear labeling; rewarded interstitial requires its own compliant intro/opt-out. Supplied IDs do not require enabling every format.
+Enable app-open integration now with the supplied unit (official test unit in debug). Installation alone cannot show an ad. After initial onboarding and a few uses, show a ready, unexpired ad only on a genuine eligible loading/foreground transition, subject to consent, a documented cooldown and the full-screen guard. Do not delay the game artificially or show a late cold-start ad after content appears. Suppress resume triggers caused by rewarded/interstitial/consent screens, external support and active gameplay. Dispose/reload safely after dismissal/failure; offline/no-fill continues immediately. Explain eligibility rather than promising an ad on every open.
 Centralize loading/disposal/lifecycle/caps. Log useful consent-aware gameplay, retention, reward completion/abandonment and ad outcomes without personal data; integrate existing analytics/crash monitoring or document missing Firebase setup. Treat escalating ad cost per extra life as a hypothesis to measure, not guaranteed profit.
 
 P4 SUPPORT + ANDROID AUDIT
 Implement HTTPS JSON POST to https://formspree.io/f/xqpkqbjl with Content-Type and Accept: application/json. Dashboard recipient: shuvo4727@gmail.com. Only user input: one required multiline message; only form controls: Cancel/Close and Send. Read the current installed app display name at runtime (e.g. existing package_info_plus); send invisible subject exactly "Support Request — [automatic app name]" plus message. No visible subject/name/email/phone/account field, mailto primary flow, credentials or custom backend. Add a brief caring intro and explain the message goes to support; do not promise a personal reply without contact details.
 Trim/validate; disable sending/re-entry while in flight; show loading, close after confirmed success with a visible success notice; preserve draft and show useful offline/timeout/rate-limit/provider errors. Prevent double taps and concurrent requests; no automatic retry after an ambiguous timeout. Handle unmounted UI safely. Document endpoint activation, recipient verification, plan limits and any CAPTCHA/domain restrictions affecting native mobile clients. Email routing is dashboard-controlled; code alone cannot verify delivery.
-Inspect/fix relevant pubspec.yaml assets/dependencies, AndroidManifest permissions/App ID/labels, applicationId/namespace, Gradle/AGP/Kotlin/SDK compatibility and ProGuard/R8 rules using current official docs. Don't add blanket keep/dontwarn rules or duplicate SDK dependencies. Review release signing configuration without exposing secrets. Record manual release-build/shrinking checks still needed.
+Inspect/fix pubspec assets/dependencies, manifest permissions/App ID/labels, applicationId/namespace, Gradle/AGP/Kotlin/SDK compatibility, signing and R8 using current official docs. Check any required keep rules are wired into the actual release variant; no blanket keep/dontwarn or exposed secrets. Owner must manually build/install the minified release and check cold start, save/reopen and ad return. Debug success/source review does not establish release startup; diagnose crashes from logs, not guesses.
 
 P5 STORE ASSETS + ASO
-Produce files: exactly 8 distinct attractive promotional screenshots; original 512x512 Play icon (32-bit PNG), adaptive launcher artwork/config, 1024x500 feature graphic (JPEG/24-bit PNG without alpha), editable sources, asset manifest and ASO listing. Match the game's real style; generate original decorative art where useful. Screenshot panels must use actual supplied/captured app UI, not invented gameplay or competitor images. Choose orientation matching the game (1080x1920 portrait or 1920x1080 landscape), with real gameplay prominent and concise readable benefits.
-With no usable game captures, create all 8 editable layouts/storyboards and exact manual capture instructions, mark them CAPTURE NEEDED, and finish truthful exports when captures arrive. Never run the app to obtain them under this contract or call placeholders upload-ready. Inspect rendered assets for clipping, legibility, dimensions and consistency.
+Produce files: exactly 8 distinct attractive final promo images based on code/assets; original 512x512 Play icon (32-bit PNG), adaptive launcher artwork/config, 1024x500 feature graphic (JPEG/24-bit PNG without alpha), editable sources, asset manifest and ASO listing. Match implemented game style, layout, proportions, object appearance, rules and feature availability. Choose orientation matching the game (1080x1920 portrait or 1920x1080 landscape), with the supported mechanic prominent and concise readable benefits. Do not invent features or use competitor artwork.
+CODE-BASED PRODUCTION IS REQUIRED: Do not ask me for captures, wait for uploads, run/play/build/install the game or launch an emulator. Trace implemented widgets/scene code, layout constants, theme, camera, models/textures, tutorial, rules and progression. Reuse actual repository assets and reconstruct representative legitimate states in standalone editable SVG/HTML/canvas/design compositions, or use original generated illustrations grounded in those assets where appropriate. Render/export the compositions themselves to eight final PNG/JPEG files using available tools; rendering a promo document is allowed and does not authorize game execution. Inspect the exported image pixels and repair clipping, tiny text, poor contrast, inconsistencies and dimensions. Do not stop at empty templates, a storyboard or image-generation prompts when final image production is feasible. If a required export tool is genuinely unavailable, report that precise blocker rather than requesting gameplay captures.
+Map eight distinct supported messages to source-backed scenes: core mechanic, guide tutorial, satisfying interaction, challenge, earned progression, actual mode, result/replay and strongest differentiator. Substitute actual supported content for absent features. Keep decorative framing separate from the depicted game scene. Record each file's source paths/assets and kind as reconstructed promo or illustration in the asset manifest; do not call these actual gameplay screenshots or runtime verification. Final promo files are complete creative exports, but store screenshot eligibility must be checked against current official guidance separately; do not claim upload compliance solely from reconstruction. Generate original icon/feature artwork with available image tools, inspect it and integrate launcher assets; prompts alone are not final assets when production is feasible.
 Write natural, relevant keyword-based Play copy: title <=30, short description <=80, full description <=4000 characters; check current official limits. Show genuine differentiators, no fake claims, keyword stuffing, competitor branding or "100% ASO"/ranking/install guarantees. Document screenshot filenames/copy and a simple future listing experiment.
+Research live relevant Play listings and current official metadata/asset requirements; save dated links, search-intent observations, visible competitor positioning and supported differentiators. Never invent search volume or conversion metrics. Write the listing around the implemented game, check character counts and align the first screenshots with its promise. Produce a listing experiment with a measurable conversion/retention goal, not a 100% ranking/install guarantee.
 
 P6 REVIEW + HANDOFF
 Review all acceptance criteria, source/config and supplied manual play/screenshots/logs. Fix concrete gaps; distinguish implemented, source-reviewed, manually verified and blocked. Write tests/checks for rules, saves/lifecycle, selected rewarded-offer callback/idempotency (and revive-bundle credit only when the game has lives), failed ads, support duplicates/errors and small screens. Supply a compact human playtest, remaining console setup, privacy/Data safety inputs based on actual SDKs, closed-testing/release checklist and post-launch retention/crash/revenue learning plan. Do not invent console URLs, publish, or claim testing passed without results.
-Each phase ends with a short change/evidence summary, exact owner checks and the next phase. Keep unresolved work visible; ask for manual results when needed and continue independent authorized work.`;
+At milestones give brief progress updates and continue feasible work without asking approval. End only when authorized feasible work is complete or every remaining action depends on a genuine external blocker; save the next action and list missing owner evidence together once. Never claim full-game, upload or release readiness while required 3D runtime, visual/play, reward, support-delivery or release-startup evidence is pending.`;
     }
 
     function followupPrompt(c, mode) {
       const focus = {
-        continue: "Implement the next incomplete phase only.",
-        polish: "Complete P2: cohesive 2.5D screen polish, real licensed sound triggers and attractive local profile. Fix core blockers first.",
-        ads: "Complete P3: safe AdMob configuration, the 1/2/3-ad bundle only for a game's natural extra-life mechanic, its concept-fit reward otherwise, lifecycle/callback safety, caps and outcome measurement.",
+        continue: "Repair the earliest failed criterion, then continue all feasible authorized phases without phase approval or another Continue. Keep missing device evidence pending and finish independent work; do not claim a pass or mass-produce unverified content.",
+        polish: "Repair the earliest P1/P2 visual or input gap: inspect gameplay video first for behavior and pacing, record timestamped observations, then use screenshots for layout/art detail. Distinguish reference video from my game's footage; frames alone do not establish motion/timing. Implement real 3D camera/meshes/materials/lighting, enlarge the play area, add the guide-character interactive tutorial and fix feedback/sound. Preserve rules, saves and identity; do not replace 3D with decorated 2D. Continue feasible repairs without design approval; keep device checks pending until evidenced.",
+        ads: "Complete P3: required UMP with no unnecessary privacy dialogs, enabled app-open on eligible loading/resume after onboarding and initial uses, desirable opt-in reward cards, concept-fit rewards, lifecycle/callback safety, caps and outcome measurement. Keep any existing natural extra-life bundle clearly disclosed; no forced ads during tutorial/play, consent bypass or every-open guarantee.",
         support: "Complete P4: runtime-name one-field Formspree support plus focused pubspec/manifest/Gradle/R8 review.",
-        store: "Complete P5: exactly 8 truthful promo screenshots, icon/launcher artwork, feature graphic and ASO copy. Use real captures; if missing, create 8 editable layouts and mark final exports pending.",
-        review: "Use my manual results below to reproduce in reasoning, fix reported defects and update acceptance/evidence status. Do not invent passing results."
+        store: "Complete P5 without routine approval, owner captures or game execution: inspect implemented code/layout/theme/rules and actual assets, reconstruct eight distinct supported scenes as attractive standalone promo compositions and export final PNG/JPEG files. Inspect all exports; include editable sources, source provenance, attractive icon/launcher artwork, feature graphic and researched, character-count-checked ASO copy. Record images as reconstructed promos, not runtime screenshots. No template-only handoff, invented features or ranking/install promises. Render the promo files only; do not run/play/build/install the game or launch an emulator.",
+        review: "Use gameplay video as the primary behavior evidence: inspect action-response sequences, controls, movement, feedback, timing, win/fail/retry and audio where available. Identify problems by timestamp; use screenshots only to support static layout/art findings. Distinguish competitor/reference footage from footage of my implemented game; a reference video does not verify my game's runtime. Compare equivalent states, fix concrete gaps and update evidence gates. Report inaccessible video/audio and leave those criteria pending; never replace video observations with guesses from screenshots or invent passing results."
       };
+      const visualNotes = c.visualBrief && (mode === "polish" || mode === "review") ? "\n\nVisual references/issues:\n" + c.visualBrief : "";
       return `Continue ${c.name} in its repository (${c.packageName}; preserve any existing published ID).
-Read docs/GAME_PLAN.md or its recorded equivalent; reuse its complete contract and configuration. ${focus[mode]}
-Do not execute Flutter/Dart commands, Gradle, installs, emulators, device captures or packaging; I handle execution. Review source/files, update the plan and report changes, evidence, pending checks and next step briefly. If the saved contract is missing, request the master prompt rather than inventing requirements.${mode === "review" ? "\n\nMy manual results:\n[Paste logs, screenshots or playtest notes here.]" : ""}`;
+Read docs/GAME_PLAN.md or its recorded equivalent and reuse its AUTONOMOUS-3D-3 contract/configuration. If an older contract is saved, preserve its game configuration and adopt this autonomy rule now; use the current full Master/Repair contract when available. Never require a repeated approval just to continue. If no plan exists, reconstruct it from the repository and proceed with this focused scope; do not invent absent configuration. ${focus[mode]}
+Gameplay video is the primary reference for behavior; screenshots support static layout/art only. Inspect available footage first and record timestamped observations; disclose inaccessible video/audio or frame-only inspection and do not invent motion/timing findings. Reference footage does not verify this game's runtime.
+Honor saved verification criteria; "Continue" alone is not a pass. Replace any earlier self-capture authorization with code-based promo production: do not run/play/build/install the game, execute Flutter/Dart/Gradle or launch emulators/device captures. Inspect code/assets and render standalone reconstructed promo compositions to final PNG/JPEG instead; owner uploads are optional and templates alone are insufficient. Record source provenance and distinguish reconstructed promos from actual runtime captures. Game analysis/tests/formatting and release packaging remain manual. Pending human evidence does not block independent implementation or promo exports. Update the plan, continue feasible authorized work and briefly report fixes, evidence and remaining checks together.${visualNotes}${mode === "review" ? "\n\nMy optional manual feedback:\n[Attach gameplay video with useful timestamps first, supporting screenshots or logs/play notes; label competitor references separately.]" : ""}`;
     }
     function generate() {
       const c = currentConfig();
@@ -380,12 +417,13 @@ Do not execute Flutter/Dart commands, Gradle, installs, emulators, device captur
         return false;
       }
       const mode = $("promptMode").value;
-      const value = mode === "master" ? masterPrompt(c) : followupPrompt(c, mode);
+      const fullContract = mode === "master" || mode === "repair";
+      const value = fullContract ? masterPrompt(c, mode === "repair") : followupPrompt(c, mode);
       $("masterPrompt").value = value;
       $("copyPrompt").disabled = false;
       const words = value.split(/\s+/).length;
       $("promptMetrics").textContent = words.toLocaleString("en-US") + " words · " + value.length.toLocaleString("en-US") + " characters · token count model/language অনুযায়ী আলাদা।";
-      status("promptStatus", mode === "master" ? "Master প্রস্তুত। Game-এর নিজস্ব project/task-এ একবার পাঠাও।" : "Saved master contract থাকা একই game project-এ ব্যবহার করো।", "ok");
+      status("promptStatus", fullContract ? (mode === "repair" ? "Repair প্রস্তুত। বর্তমান game-এর task-এ পাঠাও; নিজের screenshot/video ও reference আলাদা করে attach করো।" : "Master প্রস্তুত। Game-এর project/task-এ একবার পাঠাও; routine phase approval লাগবে না।") : "AUTONOMOUS-3D-3 contract থাকা একই game project-এ ব্যবহার করো।", "ok");
       return true;
     }
     async function copyPrompt() {
@@ -422,6 +460,7 @@ Do not execute Flutter/Dart commands, Gradle, installs, emulators, device captur
       $("adReview").checked = false;
       updatePackage(); invalidate();
     });
+    $("visualBrief").addEventListener("input", invalidate);
     Object.keys(adFields).forEach((id) => $(id).addEventListener("input", () => {
       $("adReview").checked = false; invalidate();
     }));
@@ -450,7 +489,7 @@ Do not execute Flutter/Dart commands, Gradle, installs, emulators, device captur
     });
     $("newGame").addEventListener("click", () => {
       clearAds();
-      ["gameName", "gameSlug", "gameConcept"].forEach((id) => { $(id).value = ""; });
+      ["gameName", "gameSlug", "gameConcept", "visualBrief"].forEach((id) => { $(id).value = ""; });
       $("promptMode").value = "master";
       slugEdited = false;
       updatePackage();
